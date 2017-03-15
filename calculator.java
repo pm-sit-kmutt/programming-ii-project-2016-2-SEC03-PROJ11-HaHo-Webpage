@@ -7,6 +7,7 @@ package model;
 
 public class calculator {
     private int sum;
+    // gitBash
 //dsdsdssds
     public int getSum() {
         return sum;
