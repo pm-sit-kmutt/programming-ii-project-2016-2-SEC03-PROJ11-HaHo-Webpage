@@ -1,0 +1,44 @@
+CREATE TABLE user
+(
+userID int NOT NULL PRIMARY KEY,
+username varchar(30),
+user_pass varchar(15),
+isAdmin boolean not null default 0,
+student_ID int(6)
+);
+
+CREATE TABLE post
+(
+postID int NOT NULL PRIMARY KEY,
+post_name varchar(50),
+post_description varchar(200),
+post_createDate TIMESTAMP,
+post_editDate TIMESTAMP,
+ voteScore int,
+ isPin boolean not null default 0,
+ userID  int,
+ FOREIGN KEY (userID) REFERENCES user(userID)
+);
+
+CREATE TABLE comment
+(
+commentID int NOT NULL PRIMARY KEY,
+comment_description varchar(200),
+comment_date TIMESTAMP,
+postID int,
+userID  int,
+  FOREIGN KEY (userID) REFERENCES user(userID),
+  FOREIGN KEY (postID) REFERENCES post(postID)
+);
+
+INSERT INTO user (userID,username,user_pass,student_ID) 
+VALUES
+( 0001, 'Luda','123456',590001),
+( 0002, 'YoungB','aaaaaa',5900026 ),
+( 0003, 'Bluda','aaaaaa',5900100 ),
+( 0004, 'oddin','11111',5900078 )
+;
+
+insert into user values (1001,'Admin','password',1,590000);
+
+        

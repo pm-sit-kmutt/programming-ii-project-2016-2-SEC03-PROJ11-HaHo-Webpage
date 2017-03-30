@@ -1,0 +1,49 @@
+.shop-center{
+ padding-left: 6em;
+
+}
+.content-shop{
+ font-family: Cordia New;
+ font-size: 18pt;
+float: left;
+    
+
+}
+.imgShop{
+    float: left;
+    padding-right: 1em; 
+   
+
+}
+
+.btn-deal{
+ float: left;
+    padding-left: 5em;
+    padding-top: 2em;
+}
+
+span {
+	color: #999;
+	font-size:0.8125em;
+	padding-top: 0.2em;
+	display: block;
+	text-transform: uppercase;
+}
+
+input[type="submit"] {
+  background:#ffe764;
+  color: #FFF;
+  font-size: 1em;
+  padding: 1em 2em;
+  transition: 0.5s all;
+  -webkit-transition: 0.5s all;
+  -moz-transition: 0.5s all;
+  -o-transition: 0.5s all;
+  display: inline-block;
+  text-transform: uppercase;
+  border: none;
+  outline: none;
+}
+input[type="submit"]:hover {
+	background:#999;
+}
