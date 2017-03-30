@@ -47,6 +47,11 @@ public class Login extends javax.swing.JFrame {
         login.setText("เข้าสู่ระบบ");
 
         username.setText("user");
+        username.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                usernameActionPerformed(evt);
+            }
+        });
 
         password.setText("jPasswordField1");
 
@@ -157,6 +162,10 @@ public class Login extends javax.swing.JFrame {
         }
 
     }//GEN-LAST:event_okActionPerformed
+
+    private void usernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_usernameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_usernameActionPerformed
 
     /**
      * @param args the command line arguments
