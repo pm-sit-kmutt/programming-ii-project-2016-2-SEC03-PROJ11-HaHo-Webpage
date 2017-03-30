@@ -1,2 +1,0 @@
-Model.Connection
-model.ConnectionBuilder
