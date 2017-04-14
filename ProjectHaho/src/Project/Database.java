@@ -29,22 +29,19 @@ public class Database {
         return conn;
     }
     
-    public static void main(String[] args) {
+    /*public static void main(String[] args) {
         try{
             Connection con = Database.getConnection();
             Statement s = con.createStatement();
-           String sql = "select * from user";
+            String sql = "select * from user";
             ResultSet rs = s.executeQuery(sql);
             while(rs.next()){
                 System.out.println(rs.getInt("userID"));
                 System.out.println(rs.getString("username"));
                 System.out.println(rs.getString("user_pass"));
             }
-            
-         //   String sql = "INSERT INTO user (userID,username , user_pass) VALUES (590500011,'manman', 'lnwlnw')";
-         //   int aa = s.executeUpdate(sql);
         }catch(Exception e){
             System.out.println(e.getMessage());
         }
-    }
+    }*/
 }

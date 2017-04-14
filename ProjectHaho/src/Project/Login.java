@@ -118,36 +118,19 @@ public class Login extends javax.swing.JFrame {
 
     private void cancleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancleActionPerformed
         // TODO add your handling code here:
-        JOptionPane.showMessageDialog(null, "คุณต้องการออกจากระบบใช่หรือไม่");
         System.exit(0);
-
     }//GEN-LAST:event_cancleActionPerformed
 
     private void okActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_okActionPerformed
         // TODO add your handling code here:
-        String passFromDatabase = "";
-        Statement st;
-        String sql;
-        ResultSet rs;
         try {
             Connection con = Database.getConnection();
-            st = con.createStatement();
-            sql = "select user_pass from user where username=" + "'" + username.getText() + "'";   
-            
-            //******Register******
-            /*sql = "INSERT INTO user (userID ,username,user_pass)  VALUES (580000018,'" + username.getText() +
-                    "', '" + password.getText() + "')";
-            System.out.println(sql);
-            //INSERT INTO table_name (column1, column2, column3, ...)
-             //VALUES (value1, value2, value3, ...);
-            int ss = st.executeUpdate(sql);
-            System.out.println(password.getText());
-            System.out.println(username.getText());*/
-            
-            rs = st.executeQuery(sql);
-            
+            Statement stm = con.createStatement();
+            String sql = "select user_pass from user where username=" + "'" + username.getText() + "'";
+            ResultSet rs = stm.executeQuery(sql); 
+
             if (rs.next()) {
-                    passFromDatabase = rs.getString("user_pass");
+                String passFromDatabase = rs.getString("user_pass");
                 if (password.getText().equalsIgnoreCase(passFromDatabase)) {
                     JOptionPane.showMessageDialog(null, "ยินดีต้อนรับ " + username.getText());
                 } else {
@@ -156,7 +139,7 @@ public class Login extends javax.swing.JFrame {
             } else {
                 JOptionPane.showMessageDialog(null, "username หรือ password ไม่ถูกต้อง");
             }
- 
+
         } catch (Exception e) {
             e.printStackTrace();
         }
