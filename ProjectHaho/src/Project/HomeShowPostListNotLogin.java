@@ -9,12 +9,12 @@ package Project;
  *
  * @author USER
  */
-public class HomeShowPostList extends javax.swing.JFrame {
+public class HomeShowPostListNotLogin extends javax.swing.JFrame {
 
     /**
-     * Creates new form HomeShowPostList
+     * Creates new form HomeShowPostListNotLogin
      */
-    public HomeShowPostList() {
+    public HomeShowPostListNotLogin() {
         initComponents();
     }
 
@@ -32,7 +32,6 @@ public class HomeShowPostList extends javax.swing.JFrame {
         lb_home = new javax.swing.JLabel();
         kmutt = new javax.swing.JLabel();
         lb_addTopic = new javax.swing.JLabel();
-        lb_profile = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         lb_kmutt = new javax.swing.JLabel();
         nav = new javax.swing.JPanel();
@@ -40,8 +39,6 @@ public class HomeShowPostList extends javax.swing.JFrame {
         CommunityForum = new javax.swing.JLabel();
         search = new javax.swing.JTextField();
         line = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        logout = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         showPostList = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
@@ -50,9 +47,11 @@ public class HomeShowPostList extends javax.swing.JFrame {
         topic = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
+        login = new javax.swing.JButton();
+        register = new javax.swing.JButton();
+        line3 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setBackground(java.awt.SystemColor.activeCaption);
 
         panelBG.setBackground(new java.awt.Color(255, 255, 255));
         panelBG.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -75,12 +74,6 @@ public class HomeShowPostList extends javax.swing.JFrame {
         lb_addTopic.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lb_addTopic.setText("ADD TOPIC");
         panelBar.add(lb_addTopic, new org.netbeans.lib.awtextra.AbsoluteConstraints(-3, 230, 130, -1));
-
-        lb_profile.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
-        lb_profile.setForeground(new java.awt.Color(255, 255, 255));
-        lb_profile.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lb_profile.setText("PROFILE");
-        panelBar.add(lb_profile, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 280, 130, -1));
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -116,16 +109,6 @@ public class HomeShowPostList extends javax.swing.JFrame {
         line.setMaximumSize(new java.awt.Dimension(2147483647, 2147480000));
         line.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         panelBG.add(line, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 60, 780, 2));
-
-        jLabel1.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(204, 204, 204));
-        jLabel1.setText("Wecome");
-        panelBG.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 30, 60, 30));
-
-        logout.setBackground(new java.awt.Color(255, 102, 0));
-        logout.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
-        logout.setText("Log Out");
-        panelBG.add(logout, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 30, 80, -1));
 
         jScrollPane1.setBorder(null);
 
@@ -228,6 +211,33 @@ public class HomeShowPostList extends javax.swing.JFrame {
 
         panelBG.add(nav2, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 150, 730, 40));
 
+        login.setBackground(new java.awt.Color(255, 102, 0));
+        login.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
+        login.setForeground(new java.awt.Color(255, 255, 255));
+        login.setText("Sign in");
+        panelBG.add(login, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 20, 80, 30));
+
+        register.setBackground(new java.awt.Color(204, 204, 204));
+        register.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
+        register.setForeground(new java.awt.Color(255, 102, 0));
+        register.setText("Sing Up");
+        panelBG.add(register, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 20, 80, 30));
+
+        line3.setBackground(new java.awt.Color(0, 0, 0));
+
+        javax.swing.GroupLayout line3Layout = new javax.swing.GroupLayout(line3);
+        line3.setLayout(line3Layout);
+        line3Layout.setHorizontalGroup(
+            line3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 2, Short.MAX_VALUE)
+        );
+        line3Layout.setVerticalGroup(
+            line3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 30, Short.MAX_VALUE)
+        );
+
+        panelBG.add(line3, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 20, 2, 30));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -259,27 +269,26 @@ public class HomeShowPostList extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(HomeShowPostList.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(HomeShowPostListNotLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(HomeShowPostList.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(HomeShowPostListNotLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(HomeShowPostList.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(HomeShowPostListNotLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(HomeShowPostList.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(HomeShowPostListNotLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new HomeShowPostList().setVisible(true);
+                new HomeShowPostListNotLogin().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel CommunityForum;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
@@ -289,15 +298,16 @@ public class HomeShowPostList extends javax.swing.JFrame {
     private javax.swing.JLabel lb_addTopic;
     private javax.swing.JLabel lb_home;
     private javax.swing.JLabel lb_kmutt;
-    private javax.swing.JLabel lb_profile;
     private javax.swing.JPanel line;
     private javax.swing.JPanel line2;
-    private javax.swing.JButton logout;
+    private javax.swing.JPanel line3;
+    private javax.swing.JButton login;
     private javax.swing.JPanel nav;
     private javax.swing.JPanel nav2;
     private javax.swing.JPanel panelBG;
     private javax.swing.JPanel panelBar;
     private javax.swing.JLabel pic_book;
+    private javax.swing.JButton register;
     private javax.swing.JTextField search;
     private javax.swing.JPanel showPostList;
     private javax.swing.JLabel topic;
