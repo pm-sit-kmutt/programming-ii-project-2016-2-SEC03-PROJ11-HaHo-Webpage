@@ -29,19 +29,23 @@ public class HomeShowPostListNotLogin extends javax.swing.JFrame {
 
         panelBG = new javax.swing.JPanel();
         panelBar = new javax.swing.JPanel();
-        lb_home = new javax.swing.JLabel();
         kmutt = new javax.swing.JLabel();
-        lb_addTopic = new javax.swing.JLabel();
-        jPanel1 = new javax.swing.JPanel();
+        home = new javax.swing.JButton();
+        addTopic = new javax.swing.JButton();
         lb_kmutt = new javax.swing.JLabel();
         nav = new javax.swing.JPanel();
         pic_book = new javax.swing.JLabel();
         CommunityForum = new javax.swing.JLabel();
-        search = new javax.swing.JTextField();
+        text_search = new javax.swing.JTextField();
+        search = new javax.swing.JButton();
         line = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         showPostList = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
+        jPanel3 = new javax.swing.JPanel();
+        jPanel4 = new javax.swing.JPanel();
+        jPanel5 = new javax.swing.JPanel();
+        jPanel6 = new javax.swing.JPanel();
         nav2 = new javax.swing.JPanel();
         line2 = new javax.swing.JPanel();
         topic = new javax.swing.JLabel();
@@ -59,25 +63,26 @@ public class HomeShowPostListNotLogin extends javax.swing.JFrame {
         panelBar.setBackground(new java.awt.Color(255, 102, 0));
         panelBar.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        lb_home.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
-        lb_home.setForeground(new java.awt.Color(255, 102, 0));
-        lb_home.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lb_home.setText("HOME");
-        panelBar.add(lb_home, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 180, 130, -1));
-
         kmutt.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         kmutt.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Project/kmutt1.png"))); // NOI18N
         panelBar.add(kmutt, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 140, 100));
 
-        lb_addTopic.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
-        lb_addTopic.setForeground(new java.awt.Color(255, 255, 255));
-        lb_addTopic.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lb_addTopic.setText("ADD TOPIC");
-        panelBar.add(lb_addTopic, new org.netbeans.lib.awtextra.AbsoluteConstraints(-3, 230, 130, -1));
+        home.setBackground(new java.awt.Color(255, 255, 255));
+        home.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
+        home.setForeground(new java.awt.Color(255, 102, 0));
+        home.setText("HOME");
+        panelBar.add(home, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 190, 150, 40));
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        panelBar.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 170, 140, 40));
+        addTopic.setBackground(new java.awt.Color(255, 102, 0));
+        addTopic.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
+        addTopic.setForeground(new java.awt.Color(255, 255, 255));
+        addTopic.setText("ADD TOPIC");
+        addTopic.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addTopicActionPerformed(evt);
+            }
+        });
+        panelBar.add(addTopic, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 250, 150, 40));
 
         panelBG.add(panelBar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 130, 530));
 
@@ -96,12 +101,24 @@ public class HomeShowPostListNotLogin extends javax.swing.JFrame {
         CommunityForum.setText("Community Forum");
         nav.add(CommunityForum, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 10, -1, -1));
 
-        search.setBackground(new java.awt.Color(204, 204, 204));
-        search.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
-        search.setForeground(new java.awt.Color(255, 102, 0));
-        search.setText(" Search");
-        search.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 102, 0)));
-        nav.add(search, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 20, 150, 30));
+        text_search.setBackground(new java.awt.Color(204, 204, 204));
+        text_search.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
+        text_search.setForeground(new java.awt.Color(255, 102, 0));
+        text_search.setText(" Search");
+        text_search.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 102, 0)));
+        text_search.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                text_searchFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                text_searchFocusLost(evt);
+            }
+        });
+        nav.add(text_search, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 20, 150, 30));
+
+        search.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
+        search.setText("Search");
+        nav.add(search, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 20, 80, 30));
 
         panelBG.add(nav, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 80, 770, 60));
 
@@ -122,11 +139,67 @@ public class HomeShowPostListNotLogin extends javax.swing.JFrame {
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 708, Short.MAX_VALUE)
+            .addGap(0, 709, Short.MAX_VALUE)
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 56, Short.MAX_VALUE)
+            .addGap(0, 42, Short.MAX_VALUE)
+        );
+
+        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel3.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 709, Short.MAX_VALUE)
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 42, Short.MAX_VALUE)
+        );
+
+        jPanel4.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel4.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 709, Short.MAX_VALUE)
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 42, Short.MAX_VALUE)
+        );
+
+        jPanel5.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel5.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+
+        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
+        jPanel5.setLayout(jPanel5Layout);
+        jPanel5Layout.setHorizontalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 709, Short.MAX_VALUE)
+        );
+        jPanel5Layout.setVerticalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 42, Short.MAX_VALUE)
+        );
+
+        jPanel6.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel6.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+
+        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
+        jPanel6.setLayout(jPanel6Layout);
+        jPanel6Layout.setHorizontalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 709, Short.MAX_VALUE)
+        );
+        jPanel6Layout.setVerticalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 42, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout showPostListLayout = new javax.swing.GroupLayout(showPostList);
@@ -134,8 +207,13 @@ public class HomeShowPostListNotLogin extends javax.swing.JFrame {
         showPostListLayout.setHorizontalGroup(
             showPostListLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, showPostListLayout.createSequentialGroup()
-                .addContainerGap(21, Short.MAX_VALUE)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(20, Short.MAX_VALUE)
+                .addGroup(showPostListLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(20, 20, 20))
         );
         showPostListLayout.setVerticalGroup(
@@ -143,7 +221,15 @@ public class HomeShowPostListNotLogin extends javax.swing.JFrame {
             .addGroup(showPostListLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(354, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(112, Short.MAX_VALUE))
         );
 
         jScrollPane1.setViewportView(showPostList);
@@ -215,12 +301,22 @@ public class HomeShowPostListNotLogin extends javax.swing.JFrame {
         login.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
         login.setForeground(new java.awt.Color(255, 255, 255));
         login.setText("Sign in");
+        login.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                loginActionPerformed(evt);
+            }
+        });
         panelBG.add(login, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 20, 80, 30));
 
         register.setBackground(new java.awt.Color(204, 204, 204));
         register.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
         register.setForeground(new java.awt.Color(255, 102, 0));
         register.setText("Sing Up");
+        register.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                registerActionPerformed(evt);
+            }
+        });
         panelBG.add(register, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 20, 80, 30));
 
         line3.setBackground(new java.awt.Color(0, 0, 0));
@@ -251,6 +347,41 @@ public class HomeShowPostListNotLogin extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginActionPerformed
+        // TODO add your handling code here:
+        LoginAndRegister lr = new LoginAndRegister();
+        lr.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_loginActionPerformed
+
+    private void registerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerActionPerformed
+        // TODO add your handling code here:
+        LoginAndRegister lr = new LoginAndRegister();
+        lr.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_registerActionPerformed
+
+    private void text_searchFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_text_searchFocusGained
+        // TODO add your handling code here:
+        if (text_search.getText().equals(" Search")) {
+            text_search.setText("");
+        }
+    }//GEN-LAST:event_text_searchFocusGained
+
+    private void text_searchFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_text_searchFocusLost
+        // TODO add your handling code here:
+        if (text_search.getText().equals("")) {
+            text_search.setText(" Search");
+        }
+    }//GEN-LAST:event_text_searchFocusLost
+
+    private void addTopicActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addTopicActionPerformed
+        // TODO add your handling code here:
+        PostNotLogin p = new PostNotLogin();
+        p.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_addTopicActionPerformed
 
     /**
      * @param args the command line arguments
@@ -289,14 +420,17 @@ public class HomeShowPostListNotLogin extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel CommunityForum;
+    private javax.swing.JButton addTopic;
+    private javax.swing.JButton home;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel kmutt;
-    private javax.swing.JLabel lb_addTopic;
-    private javax.swing.JLabel lb_home;
     private javax.swing.JLabel lb_kmutt;
     private javax.swing.JPanel line;
     private javax.swing.JPanel line2;
@@ -308,8 +442,9 @@ public class HomeShowPostListNotLogin extends javax.swing.JFrame {
     private javax.swing.JPanel panelBar;
     private javax.swing.JLabel pic_book;
     private javax.swing.JButton register;
-    private javax.swing.JTextField search;
+    private javax.swing.JButton search;
     private javax.swing.JPanel showPostList;
+    private javax.swing.JTextField text_search;
     private javax.swing.JLabel topic;
     // End of variables declaration//GEN-END:variables
 }

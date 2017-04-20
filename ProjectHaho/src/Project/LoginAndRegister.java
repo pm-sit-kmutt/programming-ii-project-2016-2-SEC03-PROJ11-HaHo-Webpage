@@ -5,7 +5,7 @@
  */
 package Project;
 
-import static Project.Register.genUserID;
+import static Project.LoginAndRegister.genUserID;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -53,6 +53,7 @@ public class LoginAndRegister extends javax.swing.JFrame {
         confirmPassword_rt = new javax.swing.JPasswordField();
         pic_username = new javax.swing.JLabel();
         pic_password = new javax.swing.JLabel();
+        home = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -200,6 +201,17 @@ public class LoginAndRegister extends javax.swing.JFrame {
         pic_password.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Project/locked-padlock.png"))); // NOI18N
         panelBG.add(pic_password, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 310, -1, -1));
 
+        home.setBackground(new java.awt.Color(255, 102, 0));
+        home.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
+        home.setForeground(new java.awt.Color(255, 255, 255));
+        home.setText("Home");
+        home.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                homeActionPerformed(evt);
+            }
+        });
+        panelBG.add(home, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 490, -1, -1));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -227,8 +239,10 @@ public class LoginAndRegister extends javax.swing.JFrame {
 
             if (rs.next()) {
                 String passFromDatabase = rs.getString("user_pass");
-                if (password.getText().equalsIgnoreCase(passFromDatabase)) {
-                    JOptionPane.showMessageDialog(null, "ยินดีต้อนรับ " + username.getText());
+                if (password.getText().equals(passFromDatabase)) {
+                    HomeShowPostList home = new HomeShowPostList();
+                    home.setVisible(true);
+                    this.setVisible(false);
                 } else {
                     JOptionPane.showMessageDialog(null, "username หรือ password ไม่ถูกต้อง");
                 }
@@ -296,6 +310,7 @@ public class LoginAndRegister extends javax.swing.JFrame {
 
             if ((confirmPassword_rt.getText()).equals(password_rt.getText())) {
                 int rs = pstm.executeUpdate();
+                JOptionPane.showMessageDialog(null, "สมัครสมาชิกเรียบร้อย");
             } else {
                 JOptionPane.showMessageDialog(null, "Your password not match");
             }
@@ -395,6 +410,13 @@ public class LoginAndRegister extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_confirmPassword_rtFocusLost
 
+    private void homeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_homeActionPerformed
+        // TODO add your handling code here:
+        HomeShowPostListNotLogin home = new HomeShowPostListNotLogin();
+        home.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_homeActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -432,6 +454,7 @@ public class LoginAndRegister extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPasswordField confirmPassword_rt;
+    private javax.swing.JButton home;
     private javax.swing.JLabel kmutt;
     private javax.swing.JLabel lb_confirmPassword_rt;
     private javax.swing.JLabel lb_password;
