@@ -5,7 +5,13 @@
  */
 package Project;
 
+import static Project.comment.genCommentID;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.Timestamp;
+import java.util.Date;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -42,6 +48,12 @@ public class PostShow extends javax.swing.JFrame {
         line = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         logout = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        showPostList = new javax.swing.JPanel();
+        jPanel2 = new javax.swing.JPanel();
+        jButton1 = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        textComment = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -128,6 +140,70 @@ public class PostShow extends javax.swing.JFrame {
         });
         panelBG.add(logout, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 30, 80, -1));
 
+        jScrollPane1.setBorder(null);
+
+        showPostList.setBackground(new java.awt.Color(255, 255, 255));
+        showPostList.setForeground(new java.awt.Color(255, 255, 255));
+
+        jPanel2.setBackground(new java.awt.Color(153, 153, 153));
+        jPanel2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 625, Short.MAX_VALUE)
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 206, Short.MAX_VALUE)
+        );
+
+        jButton1.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
+        jButton1.setText("Comment");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        textComment.setColumns(20);
+        textComment.setRows(5);
+        jScrollPane2.setViewportView(textComment);
+
+        javax.swing.GroupLayout showPostListLayout = new javax.swing.GroupLayout(showPostList);
+        showPostList.setLayout(showPostListLayout);
+        showPostListLayout.setHorizontalGroup(
+            showPostListLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(showPostListLayout.createSequentialGroup()
+                .addGroup(showPostListLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(showPostListLayout.createSequentialGroup()
+                        .addGap(58, 58, 58)
+                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(showPostListLayout.createSequentialGroup()
+                        .addGap(142, 142, 142)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 470, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(showPostListLayout.createSequentialGroup()
+                        .addGap(332, 332, 332)
+                        .addComponent(jButton1)))
+                .addContainerGap(250, Short.MAX_VALUE))
+        );
+        showPostListLayout.setVerticalGroup(
+            showPostListLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(showPostListLayout.createSequentialGroup()
+                .addContainerGap(23, Short.MAX_VALUE)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jButton1)
+                .addContainerGap())
+        );
+
+        jScrollPane1.setViewportView(showPostList);
+
+        panelBG.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 140, 770, 390));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -170,6 +246,45 @@ public class PostShow extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_addTopic1ActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        Connection con = null;
+        try {
+            con = Database.getConnection();
+
+            String sql = "insert into Comment (commentID,comment_description,comment_date,postID,userID) values (?,?,?,?,?)";
+            PreparedStatement psm = con.prepareStatement(sql);
+            int num = genCommentID();
+            Date timedate = new Date();
+            Timestamp tm = new Timestamp(timedate.getTime());
+
+            psm.setInt(1, num);
+            psm.setString(2, textComment.getText());
+            psm.setTimestamp(3, tm);
+            psm.setInt(4, 1);
+            //String sql2 = "Select user.userID FROM user INNER JOIN Comment ON user.userID = Comment.userID";
+
+            psm.setInt(5, 2);
+
+            int x = psm.executeUpdate();
+
+            System.out.println(genCommentID());
+            System.out.println(textComment.getText());
+            System.out.println(tm);
+
+        } catch (Exception e) {
+            System.out.println("!!!!!!!!" + e);
+
+        }
+        try {
+            con.close();
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+       JOptionPane.showMessageDialog(null, "คอมเมนต์เรียบร้อยแล้ว");
+
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -208,9 +323,13 @@ public class PostShow extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addTopic1;
     private javax.swing.JButton home;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel kmutt;
     private javax.swing.JLabel lb_kmutt;
     private javax.swing.JPanel line;
@@ -219,5 +338,7 @@ public class PostShow extends javax.swing.JFrame {
     private javax.swing.JPanel panelBG;
     private javax.swing.JPanel panelBar;
     private javax.swing.JButton profile;
+    private javax.swing.JPanel showPostList;
+    private javax.swing.JTextArea textComment;
     // End of variables declaration//GEN-END:variables
 }

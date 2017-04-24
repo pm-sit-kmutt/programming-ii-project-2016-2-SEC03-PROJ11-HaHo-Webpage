@@ -113,7 +113,7 @@ public class comment extends javax.swing.JFrame {
         } catch (Exception e) {
             System.out.println(e);
         }
-        this.setVisible(false);
+        JOptionPane.showMessageDialog(null, "คอมเมนต์เรียบร้อยแล้ว");
         
         
 

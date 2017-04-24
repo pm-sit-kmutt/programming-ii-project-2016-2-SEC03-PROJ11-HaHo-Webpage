@@ -27,8 +27,8 @@ import javax.swing.JOptionPane;
  */
 public class Post extends javax.swing.JFrame {
 
-    static String getTField = "";
-    static String getTArea = "";
+    protected static String getTField = "";
+    protected static String getTArea = "";
 
     /**
      * Creates new form Post
@@ -237,20 +237,35 @@ public class Post extends javax.swing.JFrame {
             stm.setInt(5, voteS);
             stm.setTimestamp(6, tm);
             stm.setBoolean(7, false);
-            stm.setInt(8, 5);
+            stm.setInt(8, LoginAndRegister.userId);
             int data = stm.executeUpdate();
-            getTField = topic.getText();
-            getTArea = content.getText();
+//            getTField = topic.getText();
+//            getTArea = content.getText();
 
             JOptionPane.showMessageDialog(null, "ตั้งกระทู้เรียบร้อย");
             PostShow pS = new PostShow();
             pS.setVisible(true);
+            String sqlPostTop = "select max(post_name) from Post where userID =" + "'" + LoginAndRegister.userId + "'";
+            String sqlPostCon = "select max(post_description) from Post where userID =" + "'" + LoginAndRegister.userId + "'";
+            Statement stmTop = con.createStatement();
+            Statement stmCon = con.createStatement();
+            ResultSet rsPostTop = stmTop.executeQuery(sqlPostTop);
+            ResultSet rsPostCon = stmCon.executeQuery(sqlPostCon);
+            if (rsPostTop.next()) {
+                getTField = rsPostTop.getString("max(post_name)");
+            }
+            if (rsPostCon.next()) {
+                    getTArea = rsPostCon.getString("max(post_description)");
+                }
+                System.out.println(getTField + "    " + getTArea);
+
+            
             this.setVisible(false);
 
         } catch (Exception e) {
             System.out.println(e);
         }
-         try {
+        try {
             con.close();
         } catch (Exception e) {
             System.out.println(e);
@@ -283,8 +298,8 @@ public class Post extends javax.swing.JFrame {
         } else {
             count = 1;
         }
-        
-         try {
+
+        try {
             con.close();
         } catch (Exception e) {
             System.out.println(e);
@@ -304,7 +319,7 @@ public class Post extends javax.swing.JFrame {
         } else {
             countVote = 1;
         }
-         try {
+        try {
             con.close();
         } catch (Exception e) {
             System.out.println(e);

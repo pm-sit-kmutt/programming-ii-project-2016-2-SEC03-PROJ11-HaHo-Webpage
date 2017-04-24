@@ -19,6 +19,9 @@ import javax.swing.JOptionPane;
  */
 public class LoginAndRegister extends javax.swing.JFrame {
 
+    protected static int userId;
+    protected static String userName;
+
     /**
      * Creates new form LoginAndRegister
      */
@@ -236,10 +239,16 @@ public class LoginAndRegister extends javax.swing.JFrame {
             Statement stm = con.createStatement();
             String sql = "select user_pass from user where username =" + "'" + username.getText() + "'";
             ResultSet rs = stm.executeQuery(sql);
-
+            userName = username.getText();
             if (rs.next()) {
                 String passFromDatabase = rs.getString("user_pass");
                 if (password.getText().equals(passFromDatabase)) {
+                    String sqlUserId = "select userID from user where username =" + "'" + userName + "'";
+                    ResultSet rsUserId = stm.executeQuery(sqlUserId);
+                    if (rsUserId.next()) {
+                        userId = rsUserId.getInt("userID");
+                    }
+                    System.out.println(userId);
                     HomeShowPostList home = new HomeShowPostList();
                     home.setVisible(true);
                     this.setVisible(false);
