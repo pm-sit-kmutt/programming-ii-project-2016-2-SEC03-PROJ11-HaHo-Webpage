@@ -5,11 +5,16 @@
  */
 package Project;
 
+
+
+
 /**
  *
  * @author USER
  */
 public class HomeShowPostList extends javax.swing.JFrame {
+    
+    
 
     /**
      * Creates new form HomeShowPostList
@@ -27,6 +32,7 @@ public class HomeShowPostList extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        textField1 = new java.awt.TextField();
         panelBG = new javax.swing.JPanel();
         panelBar = new javax.swing.JPanel();
         kmutt = new javax.swing.JLabel();
@@ -40,7 +46,6 @@ public class HomeShowPostList extends javax.swing.JFrame {
         text_search = new javax.swing.JTextField();
         search = new javax.swing.JButton();
         line = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
         logout = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         showPostList = new javax.swing.JPanel();
@@ -54,6 +59,9 @@ public class HomeShowPostList extends javax.swing.JFrame {
         topic = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
+        lb_user = new javax.swing.JLabel();
+
+        textField1.setText("textField1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(java.awt.SystemColor.activeCaption);
@@ -139,11 +147,6 @@ public class HomeShowPostList extends javax.swing.JFrame {
         line.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         panelBG.add(line, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 60, 780, 2));
 
-        jLabel1.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(204, 204, 204));
-        jLabel1.setText("Wecome");
-        panelBG.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 30, 60, 30));
-
         logout.setBackground(new java.awt.Color(255, 102, 0));
         logout.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
         logout.setForeground(new java.awt.Color(255, 255, 255));
@@ -154,8 +157,6 @@ public class HomeShowPostList extends javax.swing.JFrame {
             }
         });
         panelBG.add(logout, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 30, 80, -1));
-
-        jScrollPane1.setBorder(null);
 
         showPostList.setBackground(new java.awt.Color(255, 255, 255));
         showPostList.setForeground(new java.awt.Color(255, 255, 255));
@@ -324,6 +325,7 @@ public class HomeShowPostList extends javax.swing.JFrame {
         );
 
         panelBG.add(nav2, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 150, 730, 40));
+        panelBG.add(lb_user, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 30, 70, 30));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -369,16 +371,20 @@ public class HomeShowPostList extends javax.swing.JFrame {
 
     private void addTopic1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addTopic1ActionPerformed
         // TODO add your handling code here:
-        Post p = new Post();
+        Post1 p = new Post1();
         p.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_addTopic1ActionPerformed
-
+   
+    
     /**
      * @param args the command line arguments
-     */
+     *///        return lb_user.setText(getName);
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
+        
+        System.out.println("dsdsdsd");
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
@@ -405,6 +411,7 @@ public class HomeShowPostList extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new HomeShowPostList().setVisible(true);
+                
             }
         });
     }
@@ -413,7 +420,6 @@ public class HomeShowPostList extends javax.swing.JFrame {
     private javax.swing.JLabel CommunityForum;
     private javax.swing.JButton addTopic1;
     private javax.swing.JButton home;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel2;
@@ -424,6 +430,7 @@ public class HomeShowPostList extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel kmutt;
     private javax.swing.JLabel lb_kmutt;
+    public static javax.swing.JLabel lb_user;
     private javax.swing.JPanel line;
     private javax.swing.JPanel line2;
     private javax.swing.JButton logout;
@@ -435,6 +442,7 @@ public class HomeShowPostList extends javax.swing.JFrame {
     private javax.swing.JButton profile;
     private javax.swing.JButton search;
     private javax.swing.JPanel showPostList;
+    private java.awt.TextField textField1;
     private javax.swing.JTextField text_search;
     private javax.swing.JLabel topic;
     // End of variables declaration//GEN-END:variables

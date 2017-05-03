@@ -53,7 +53,8 @@ public class Profile extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         studentID1 = new javax.swing.JLabel();
         studentID2 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
+        lb_user = new javax.swing.JLabel();
+        wc = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -214,11 +215,12 @@ public class Profile extends javax.swing.JFrame {
         studentID2.setForeground(new java.awt.Color(153, 153, 153));
         studentID2.setText("จำนวนกระทู้ที่สร้าง  :");
         panelBG.add(studentID2, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 220, 130, 20));
+        panelBG.add(lb_user, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 30, 70, 30));
 
-        jLabel5.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(204, 204, 204));
-        jLabel5.setText("Wecome");
-        panelBG.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 30, 60, 30));
+        wc.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
+        wc.setForeground(new java.awt.Color(204, 204, 204));
+        wc.setText("Wecome");
+        panelBG.add(wc, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 30, 60, 30));
 
         getContentPane().add(panelBG, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
@@ -234,7 +236,7 @@ public class Profile extends javax.swing.JFrame {
 
     private void addTopic1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addTopic1ActionPerformed
         // TODO add your handling code here:
-        Post p = new Post();
+        Post1 p = new Post1();
         p.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_addTopic1ActionPerformed
@@ -284,7 +286,6 @@ public class Profile extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addTopic1;
     private javax.swing.JButton home;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
@@ -295,6 +296,7 @@ public class Profile extends javax.swing.JFrame {
     private javax.swing.JLabel lb_icon;
     private javax.swing.JLabel lb_kmutt;
     private javax.swing.JLabel lb_profilebar;
+    private javax.swing.JLabel lb_user;
     private javax.swing.JPanel panelBG;
     private javax.swing.JPanel panelBar;
     private javax.swing.JLabel pic;
@@ -307,6 +309,7 @@ public class Profile extends javax.swing.JFrame {
     private javax.swing.JLabel studentID1;
     private javax.swing.JLabel studentID2;
     private javax.swing.JLabel username;
+    private javax.swing.JLabel wc;
     // End of variables declaration//GEN-END:variables
 
 }

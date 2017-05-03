@@ -45,7 +45,7 @@ public class PostNotLogin extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        panelBG = new javax.swing.JPanel();
+        PostNot = new javax.swing.JPanel();
         panelBar = new javax.swing.JPanel();
         kmutt = new javax.swing.JLabel();
         home = new javax.swing.JButton();
@@ -63,8 +63,8 @@ public class PostNotLogin extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        panelBG.setBackground(new java.awt.Color(255, 255, 255));
-        panelBG.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        PostNot.setBackground(new java.awt.Color(255, 255, 255));
+        PostNot.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         panelBar.setBackground(new java.awt.Color(255, 102, 0));
         panelBar.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -90,15 +90,15 @@ public class PostNotLogin extends javax.swing.JFrame {
         addTopic1.setText("ADD TOPIC");
         panelBar.add(addTopic1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 250, 150, 40));
 
-        panelBG.add(panelBar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 130, 530));
+        PostNot.add(panelBar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 130, 530));
 
         lb_kmutt.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
         lb_kmutt.setForeground(new java.awt.Color(255, 102, 0));
         lb_kmutt.setText("King Mongkut's University of Technology Thonburi ");
-        panelBG.add(lb_kmutt, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 20, 460, 40));
+        PostNot.add(lb_kmutt, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 20, 460, 40));
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        panelBG.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 250, -1, -1));
+        PostNot.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 250, -1, -1));
 
         jPanel2.setBackground(new java.awt.Color(204, 204, 204));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -110,17 +110,17 @@ public class PostNotLogin extends javax.swing.JFrame {
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Project/add.png"))); // NOI18N
         jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, -1, -1));
 
-        panelBG.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 80, 770, 60));
+        PostNot.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 80, 770, 60));
 
         jPanel3.setBackground(new java.awt.Color(255, 102, 0));
         jPanel3.setMaximumSize(new java.awt.Dimension(2147483647, 2147480000));
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        panelBG.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 60, 780, 2));
+        PostNot.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 60, 780, 2));
 
         jLabel5.setFont(new java.awt.Font("SansSerif", 0, 24)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 102, 0));
         jLabel5.setText("Please Sign in or Sign up");
-        panelBG.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 310, -1, -1));
+        PostNot.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 310, -1, -1));
 
         login.setBackground(new java.awt.Color(255, 102, 0));
         login.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
@@ -131,7 +131,7 @@ public class PostNotLogin extends javax.swing.JFrame {
                 loginActionPerformed(evt);
             }
         });
-        panelBG.add(login, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 20, 80, 30));
+        PostNot.add(login, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 20, 80, 30));
 
         register.setBackground(new java.awt.Color(204, 204, 204));
         register.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
@@ -142,7 +142,7 @@ public class PostNotLogin extends javax.swing.JFrame {
                 registerActionPerformed(evt);
             }
         });
-        panelBG.add(register, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 20, 80, 30));
+        PostNot.add(register, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 20, 80, 30));
 
         line3.setBackground(new java.awt.Color(0, 0, 0));
 
@@ -157,19 +157,19 @@ public class PostNotLogin extends javax.swing.JFrame {
             .addGap(0, 30, Short.MAX_VALUE)
         );
 
-        panelBG.add(line3, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 20, 2, 30));
+        PostNot.add(line3, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 20, 2, 30));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(panelBG, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(PostNot, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panelBG, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(PostNot, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -177,16 +177,12 @@ public class PostNotLogin extends javax.swing.JFrame {
 
     private void loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginActionPerformed
         // TODO add your handling code here:
-        LoginAndRegister lr = new LoginAndRegister();
-        lr.setVisible(true);
-        this.setVisible(false);
+       
     }//GEN-LAST:event_loginActionPerformed
 
     private void registerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerActionPerformed
         // TODO add your handling code here:
-        LoginAndRegister lr = new LoginAndRegister();
-        lr.setVisible(true);
-        this.setVisible(false);
+     
     }//GEN-LAST:event_registerActionPerformed
 
     private void homeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_homeActionPerformed
@@ -274,6 +270,7 @@ public class PostNotLogin extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel PostNot;
     private javax.swing.JButton addTopic1;
     private javax.swing.JButton home;
     private javax.swing.JLabel jLabel1;
@@ -286,7 +283,6 @@ public class PostNotLogin extends javax.swing.JFrame {
     private javax.swing.JLabel lb_kmutt;
     private javax.swing.JPanel line3;
     private javax.swing.JButton login;
-    private javax.swing.JPanel panelBG;
     private javax.swing.JPanel panelBar;
     private javax.swing.JButton register;
     // End of variables declaration//GEN-END:variables

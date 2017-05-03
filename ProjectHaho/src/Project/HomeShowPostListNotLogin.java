@@ -350,16 +350,12 @@ public class HomeShowPostListNotLogin extends javax.swing.JFrame {
 
     private void loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginActionPerformed
         // TODO add your handling code here:
-        LoginAndRegister lr = new LoginAndRegister();
-        lr.setVisible(true);
-        this.setVisible(false);
+      
     }//GEN-LAST:event_loginActionPerformed
 
     private void registerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerActionPerformed
         // TODO add your handling code here:
-        LoginAndRegister lr = new LoginAndRegister();
-        lr.setVisible(true);
-        this.setVisible(false);
+       
     }//GEN-LAST:event_registerActionPerformed
 
     private void text_searchFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_text_searchFocusGained

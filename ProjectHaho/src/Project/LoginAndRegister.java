@@ -6,12 +6,25 @@
 package Project;
 
 import static Project.LoginAndRegister.genUserID;
+import static Project.Post1.getTField;
+import static Project.Post1.postCon;
+import static Project.Post1.postName;
+import static Project.comment.genCommentID;
+import java.awt.Color;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.sql.Timestamp;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import net.proteanit.sql.DbUtils;
 
 /**
  *
@@ -25,8 +38,18 @@ public class LoginAndRegister extends javax.swing.JFrame {
     /**
      * Creates new form LoginAndRegister
      */
-    public LoginAndRegister() {
+    public LoginAndRegister() throws SQLException {
         initComponents();
+        HomeNotLogin.setVisible(true);
+        LoginRegister.setVisible(false);
+        Home.setVisible(false);
+        PostNotLogin2.setVisible(false);
+        Post.setVisible(false);
+        Ps.setVisible(false);
+        Profile.setVisible(false);
+        //showData();
+        
+        showPostList();
     }
 
     /**
@@ -38,7 +61,31 @@ public class LoginAndRegister extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        panelBG = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        t = new javax.swing.JTable();
+        HomeNotLogin = new javax.swing.JPanel();
+        panelBar3 = new javax.swing.JPanel();
+        kmutt4 = new javax.swing.JLabel();
+        home4 = new javax.swing.JButton();
+        addTopic = new javax.swing.JButton();
+        lb_kmutt3 = new javax.swing.JLabel();
+        nav3 = new javax.swing.JPanel();
+        pic_book1 = new javax.swing.JLabel();
+        CommunityForum1 = new javax.swing.JLabel();
+        text_search1 = new javax.swing.JTextField();
+        search1 = new javax.swing.JButton();
+        line5 = new javax.swing.JPanel();
+        PostListScrollPanel = new javax.swing.JScrollPane();
+        PostListPanel = new javax.swing.JPanel();
+        nav4 = new javax.swing.JPanel();
+        line6 = new javax.swing.JPanel();
+        topic2 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        login1 = new javax.swing.JButton();
+        register1 = new javax.swing.JButton();
+        line7 = new javax.swing.JPanel();
+        LoginRegister = new javax.swing.JPanel();
         line = new javax.swing.JPanel();
         kmutt = new javax.swing.JLabel();
         username = new javax.swing.JTextField();
@@ -57,11 +104,322 @@ public class LoginAndRegister extends javax.swing.JFrame {
         pic_username = new javax.swing.JLabel();
         pic_password = new javax.swing.JLabel();
         home = new javax.swing.JButton();
+        Home = new javax.swing.JPanel();
+        panelBar = new javax.swing.JPanel();
+        kmutt1 = new javax.swing.JLabel();
+        home1 = new javax.swing.JButton();
+        profile = new javax.swing.JButton();
+        addTopic1 = new javax.swing.JButton();
+        lb_kmutt = new javax.swing.JLabel();
+        nav = new javax.swing.JPanel();
+        pic_book = new javax.swing.JLabel();
+        CommunityForum = new javax.swing.JLabel();
+        text_search = new javax.swing.JTextField();
+        search = new javax.swing.JButton();
+        line1 = new javax.swing.JPanel();
+        logout = new javax.swing.JButton();
+        nav2 = new javax.swing.JPanel();
+        line3 = new javax.swing.JPanel();
+        topic = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        lb_user = new javax.swing.JLabel();
+        PostNotLogin2 = new javax.swing.JPanel();
+        panelBar7 = new javax.swing.JPanel();
+        kmutt8 = new javax.swing.JLabel();
+        home8 = new javax.swing.JButton();
+        addTopic5 = new javax.swing.JButton();
+        lb_kmutt5 = new javax.swing.JLabel();
+        jPanel16 = new javax.swing.JPanel();
+        jPanel17 = new javax.swing.JPanel();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        jPanel18 = new javax.swing.JPanel();
+        jLabel13 = new javax.swing.JLabel();
+        login2 = new javax.swing.JButton();
+        register2 = new javax.swing.JButton();
+        line8 = new javax.swing.JPanel();
+        Post = new javax.swing.JPanel();
+        panelBar1 = new javax.swing.JPanel();
+        kmutt2 = new javax.swing.JLabel();
+        home2 = new javax.swing.JButton();
+        addTopic2 = new javax.swing.JButton();
+        profile1 = new javax.swing.JButton();
+        lb_kmutt1 = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
+        jPanel7 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jPanel8 = new javax.swing.JPanel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        content = new javax.swing.JTextArea();
+        jLabel6 = new javax.swing.JLabel();
+        cancle = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        topic1 = new javax.swing.JTextField();
+        submit = new javax.swing.JButton();
+        logout1 = new javax.swing.JButton();
+        lb_user1 = new javax.swing.JLabel();
+        Ps = new javax.swing.JPanel();
+        panelBar2 = new javax.swing.JPanel();
+        kmutt3 = new javax.swing.JLabel();
+        home3 = new javax.swing.JButton();
+        addTopic3 = new javax.swing.JButton();
+        profile2 = new javax.swing.JButton();
+        lb_kmutt2 = new javax.swing.JLabel();
+        nav1 = new javax.swing.JPanel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        line4 = new javax.swing.JPanel();
+        logout2 = new javax.swing.JButton();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        showPostList1 = new javax.swing.JPanel();
+        PostShow = new javax.swing.JPanel();
+        postShow = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        textComment = new javax.swing.JTextArea();
+        lb_user2 = new javax.swing.JLabel();
+        Profile = new javax.swing.JPanel();
+        panelBar4 = new javax.swing.JPanel();
+        kmutt5 = new javax.swing.JLabel();
+        home5 = new javax.swing.JButton();
+        profile3 = new javax.swing.JButton();
+        addTopic4 = new javax.swing.JButton();
+        lb_kmutt4 = new javax.swing.JLabel();
+        pn_bar = new javax.swing.JPanel();
+        lb_icon = new javax.swing.JLabel();
+        lb_profilebar = new javax.swing.JLabel();
+        jb_editProfile = new javax.swing.JButton();
+        jPanel14 = new javax.swing.JPanel();
+        jb_logout = new javax.swing.JButton();
+        pn_pic = new javax.swing.JPanel();
+        pic = new javax.swing.JLabel();
+        studentID = new javax.swing.JLabel();
+        username1 = new javax.swing.JLabel();
+        pn_black = new javax.swing.JPanel();
+        pn_orange = new javax.swing.JPanel();
+        lb_activity = new javax.swing.JLabel();
+        jScrollPane6 = new javax.swing.JScrollPane();
+        jPanel15 = new javax.swing.JPanel();
+        studentID1 = new javax.swing.JLabel();
+        studentID2 = new javax.swing.JLabel();
+        lb_user3 = new javax.swing.JLabel();
+
+        t.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+
+            }
+        ));
+        jScrollPane1.setViewportView(t);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        panelBG.setBackground(new java.awt.Color(255, 102, 0));
-        panelBG.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        HomeNotLogin.setBackground(new java.awt.Color(255, 255, 255));
+        HomeNotLogin.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        panelBar3.setBackground(new java.awt.Color(255, 102, 0));
+        panelBar3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        kmutt4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        kmutt4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Project/kmutt1.png"))); // NOI18N
+        panelBar3.add(kmutt4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 140, 100));
+
+        home4.setBackground(new java.awt.Color(255, 255, 255));
+        home4.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
+        home4.setForeground(new java.awt.Color(255, 102, 0));
+        home4.setText("HOME");
+        panelBar3.add(home4, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 190, 150, 40));
+
+        addTopic.setBackground(new java.awt.Color(255, 102, 0));
+        addTopic.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
+        addTopic.setForeground(new java.awt.Color(255, 255, 255));
+        addTopic.setText("ADD TOPIC");
+        addTopic.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addTopicActionPerformed(evt);
+            }
+        });
+        panelBar3.add(addTopic, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 250, 150, 40));
+
+        HomeNotLogin.add(panelBar3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 130, 530));
+
+        lb_kmutt3.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
+        lb_kmutt3.setForeground(new java.awt.Color(255, 102, 0));
+        lb_kmutt3.setText("King Mongkut's University of Technology Thonburi ");
+        HomeNotLogin.add(lb_kmutt3, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 20, 460, 40));
+
+        nav3.setBackground(new java.awt.Color(204, 204, 204));
+        nav3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        pic_book1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Project/open-book.png"))); // NOI18N
+        nav3.add(pic_book1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, -1));
+
+        CommunityForum1.setFont(new java.awt.Font("SansSerif", 1, 24)); // NOI18N
+        CommunityForum1.setText("Community Forum");
+        nav3.add(CommunityForum1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 10, -1, -1));
+
+        text_search1.setBackground(new java.awt.Color(204, 204, 204));
+        text_search1.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
+        text_search1.setForeground(new java.awt.Color(255, 102, 0));
+        text_search1.setText(" Topic");
+        text_search1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 102, 0)));
+        text_search1.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                text_search1FocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                text_search1FocusLost(evt);
+            }
+        });
+        nav3.add(text_search1, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 20, 150, 30));
+
+        search1.setBackground(new java.awt.Color(255, 255, 255));
+        search1.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
+        search1.setForeground(new java.awt.Color(255, 102, 0));
+        search1.setText("Search");
+        nav3.add(search1, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 20, 80, 30));
+
+        HomeNotLogin.add(nav3, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 80, 770, 60));
+
+        line5.setBackground(new java.awt.Color(255, 102, 0));
+        line5.setMaximumSize(new java.awt.Dimension(2147483647, 2147480000));
+        line5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        HomeNotLogin.add(line5, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 60, 780, 2));
+
+        PostListScrollPanel.setBackground(new java.awt.Color(255, 255, 255));
+        PostListScrollPanel.setBorder(null);
+
+        PostListPanel.setBackground(new java.awt.Color(255, 255, 255));
+
+        javax.swing.GroupLayout PostListPanelLayout = new javax.swing.GroupLayout(PostListPanel);
+        PostListPanel.setLayout(PostListPanelLayout);
+        PostListPanelLayout.setHorizontalGroup(
+            PostListPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 753, Short.MAX_VALUE)
+        );
+        PostListPanelLayout.setVerticalGroup(
+            PostListPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 495, Short.MAX_VALUE)
+        );
+
+        PostListScrollPanel.setViewportView(PostListPanel);
+
+        HomeNotLogin.add(PostListScrollPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 190, 770, 340));
+
+        nav4.setBackground(new java.awt.Color(255, 102, 0));
+
+        line6.setBackground(new java.awt.Color(204, 204, 204));
+        line6.setPreferredSize(new java.awt.Dimension(730, 5));
+
+        javax.swing.GroupLayout line6Layout = new javax.swing.GroupLayout(line6);
+        line6.setLayout(line6Layout);
+        line6Layout.setHorizontalGroup(
+            line6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+        line6Layout.setVerticalGroup(
+            line6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 5, Short.MAX_VALUE)
+        );
+
+        topic2.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
+        topic2.setForeground(new java.awt.Color(255, 255, 255));
+        topic2.setText("Topic");
+
+        jLabel9.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel9.setText("Writer");
+
+        jLabel10.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel10.setText("Recent Post");
+
+        javax.swing.GroupLayout nav4Layout = new javax.swing.GroupLayout(nav4);
+        nav4.setLayout(nav4Layout);
+        nav4Layout.setHorizontalGroup(
+            nav4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(line6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(nav4Layout.createSequentialGroup()
+                .addGap(60, 60, 60)
+                .addComponent(topic2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 300, Short.MAX_VALUE)
+                .addComponent(jLabel9)
+                .addGap(149, 149, 149)
+                .addComponent(jLabel10)
+                .addGap(71, 71, 71))
+        );
+        nav4Layout.setVerticalGroup(
+            nav4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(nav4Layout.createSequentialGroup()
+                .addComponent(line6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(nav4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(nav4Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(nav4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel9)
+                            .addComponent(jLabel10))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, nav4Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(topic2)
+                        .addContainerGap())))
+        );
+
+        HomeNotLogin.add(nav4, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 150, 730, 40));
+
+        login1.setBackground(new java.awt.Color(255, 102, 0));
+        login1.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
+        login1.setForeground(new java.awt.Color(255, 255, 255));
+        login1.setText("Sign in");
+        login1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                login1ActionPerformed(evt);
+            }
+        });
+        HomeNotLogin.add(login1, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 20, 80, 30));
+
+        register1.setBackground(new java.awt.Color(204, 204, 204));
+        register1.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
+        register1.setForeground(new java.awt.Color(255, 102, 0));
+        register1.setText("Sing Up");
+        register1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                register1ActionPerformed(evt);
+            }
+        });
+        HomeNotLogin.add(register1, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 20, 80, 30));
+
+        line7.setBackground(new java.awt.Color(0, 0, 0));
+
+        javax.swing.GroupLayout line7Layout = new javax.swing.GroupLayout(line7);
+        line7.setLayout(line7Layout);
+        line7Layout.setHorizontalGroup(
+            line7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 2, Short.MAX_VALUE)
+        );
+        line7Layout.setVerticalGroup(
+            line7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 30, Short.MAX_VALUE)
+        );
+
+        HomeNotLogin.add(line7, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 20, 2, 30));
+
+        getContentPane().add(HomeNotLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+
+        LoginRegister.setBackground(new java.awt.Color(255, 102, 0));
+        LoginRegister.setMaximumSize(new java.awt.Dimension(900, 530));
+        LoginRegister.setMinimumSize(new java.awt.Dimension(900, 530));
+        LoginRegister.setPreferredSize(new java.awt.Dimension(900, 530));
+        LoginRegister.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         line.setBackground(new java.awt.Color(255, 255, 255));
         line.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -77,10 +435,10 @@ public class LoginAndRegister extends javax.swing.JFrame {
             .addGap(0, 360, Short.MAX_VALUE)
         );
 
-        panelBG.add(line, new org.netbeans.lib.awtextra.AbsoluteConstraints(434, 80, 3, 360));
+        LoginRegister.add(line, new org.netbeans.lib.awtextra.AbsoluteConstraints(444, 80, 3, 360));
 
         kmutt.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Project/kmutt1.png"))); // NOI18N
-        panelBG.add(kmutt, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 100, -1, -1));
+        LoginRegister.add(kmutt, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 100, -1, -1));
 
         username.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
         username.setForeground(new java.awt.Color(204, 204, 204));
@@ -93,12 +451,12 @@ public class LoginAndRegister extends javax.swing.JFrame {
                 usernameFocusLost(evt);
             }
         });
-        panelBG.add(username, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 240, 180, 40));
+        LoginRegister.add(username, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 240, 180, 40));
 
         lb_register.setFont(new java.awt.Font("SansSerif", 0, 48)); // NOI18N
         lb_register.setForeground(new java.awt.Color(255, 255, 255));
         lb_register.setText("Sign Up");
-        panelBG.add(lb_register, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 90, -1, -1));
+        LoginRegister.add(lb_register, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 90, -1, -1));
 
         login.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
         login.setForeground(new java.awt.Color(255, 102, 0));
@@ -108,12 +466,12 @@ public class LoginAndRegister extends javax.swing.JFrame {
                 loginActionPerformed(evt);
             }
         });
-        panelBG.add(login, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 370, 90, 30));
+        LoginRegister.add(login, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 370, 90, 30));
 
         lb_password.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
         lb_password.setForeground(new java.awt.Color(204, 204, 204));
         lb_password.setText("Password");
-        panelBG.add(lb_password, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 320, -1, -1));
+        LoginRegister.add(lb_password, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 320, -1, -1));
 
         password.setForeground(new java.awt.Color(204, 204, 204));
         password.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -124,11 +482,11 @@ public class LoginAndRegister extends javax.swing.JFrame {
                 passwordFocusLost(evt);
             }
         });
-        panelBG.add(password, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 310, 180, 40));
+        LoginRegister.add(password, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 310, 180, 40));
 
         line2.setBackground(new java.awt.Color(204, 204, 204));
         line2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        panelBG.add(line2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 138, 390, 4));
+        LoginRegister.add(line2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 138, 390, 4));
 
         register.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
         register.setForeground(new java.awt.Color(255, 102, 0));
@@ -138,7 +496,7 @@ public class LoginAndRegister extends javax.swing.JFrame {
                 registerActionPerformed(evt);
             }
         });
-        panelBG.add(register, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 400, 90, 30));
+        LoginRegister.add(register, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 400, 90, 30));
 
         username_rt.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
         username_rt.setForeground(new java.awt.Color(204, 204, 204));
@@ -151,7 +509,7 @@ public class LoginAndRegister extends javax.swing.JFrame {
                 username_rtFocusLost(evt);
             }
         });
-        panelBG.add(username_rt, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 240, 180, 40));
+        LoginRegister.add(username_rt, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 240, 180, 40));
 
         studentID_rt.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
         studentID_rt.setForeground(new java.awt.Color(204, 204, 204));
@@ -164,12 +522,12 @@ public class LoginAndRegister extends javax.swing.JFrame {
                 studentID_rtFocusLost(evt);
             }
         });
-        panelBG.add(studentID_rt, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 190, 180, 40));
+        LoginRegister.add(studentID_rt, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 190, 180, 40));
 
         lb_password_rt.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
         lb_password_rt.setForeground(new java.awt.Color(204, 204, 204));
         lb_password_rt.setText("Password");
-        panelBG.add(lb_password_rt, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 300, -1, -1));
+        LoginRegister.add(lb_password_rt, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 300, -1, -1));
 
         password_rt.setForeground(new java.awt.Color(204, 204, 204));
         password_rt.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -180,12 +538,12 @@ public class LoginAndRegister extends javax.swing.JFrame {
                 password_rtFocusLost(evt);
             }
         });
-        panelBG.add(password_rt, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 290, 180, 40));
+        LoginRegister.add(password_rt, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 290, 180, 40));
 
         lb_confirmPassword_rt.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
         lb_confirmPassword_rt.setForeground(new java.awt.Color(204, 204, 204));
         lb_confirmPassword_rt.setText("Password");
-        panelBG.add(lb_confirmPassword_rt, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 350, -1, -1));
+        LoginRegister.add(lb_confirmPassword_rt, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 350, -1, -1));
 
         confirmPassword_rt.setForeground(new java.awt.Color(204, 204, 204));
         confirmPassword_rt.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -196,72 +554,782 @@ public class LoginAndRegister extends javax.swing.JFrame {
                 confirmPassword_rtFocusLost(evt);
             }
         });
-        panelBG.add(confirmPassword_rt, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 340, 180, 40));
+        LoginRegister.add(confirmPassword_rt, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 340, 180, 40));
 
         pic_username.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Project/user-silhouette.png"))); // NOI18N
-        panelBG.add(pic_username, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 230, 40, 60));
+        LoginRegister.add(pic_username, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 230, 40, 60));
 
         pic_password.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Project/locked-padlock.png"))); // NOI18N
-        panelBG.add(pic_password, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 310, -1, -1));
+        LoginRegister.add(pic_password, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 310, -1, -1));
 
         home.setBackground(new java.awt.Color(255, 102, 0));
         home.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
         home.setForeground(new java.awt.Color(255, 255, 255));
         home.setText("Home");
+        home.setAlignmentX(0.5F);
+        home.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        home.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
         home.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 homeActionPerformed(evt);
             }
         });
-        panelBG.add(home, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 490, -1, -1));
+        LoginRegister.add(home, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 480, 70, 30));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panelBG, javax.swing.GroupLayout.DEFAULT_SIZE, 900, Short.MAX_VALUE)
+        getContentPane().add(LoginRegister, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 900, 530));
+
+        Home.setBackground(new java.awt.Color(255, 255, 255));
+        Home.setMaximumSize(new java.awt.Dimension(900, 530));
+        Home.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        panelBar.setBackground(new java.awt.Color(255, 102, 0));
+        panelBar.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        kmutt1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        kmutt1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Project/kmutt1.png"))); // NOI18N
+        panelBar.add(kmutt1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 140, 100));
+
+        home1.setBackground(new java.awt.Color(255, 255, 255));
+        home1.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
+        home1.setForeground(new java.awt.Color(255, 102, 0));
+        home1.setText("HOME");
+        panelBar.add(home1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 190, 150, 40));
+
+        profile.setBackground(new java.awt.Color(255, 102, 0));
+        profile.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
+        profile.setForeground(new java.awt.Color(255, 255, 255));
+        profile.setText("PROFILE");
+        profile.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                profileActionPerformed(evt);
+            }
+        });
+        panelBar.add(profile, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 310, 150, 40));
+
+        addTopic1.setBackground(new java.awt.Color(255, 102, 0));
+        addTopic1.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
+        addTopic1.setForeground(new java.awt.Color(255, 255, 255));
+        addTopic1.setText("ADD TOPIC");
+        addTopic1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addTopic1ActionPerformed(evt);
+            }
+        });
+        panelBar.add(addTopic1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 250, 150, 40));
+
+        Home.add(panelBar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 130, 530));
+
+        lb_kmutt.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
+        lb_kmutt.setForeground(new java.awt.Color(255, 102, 0));
+        lb_kmutt.setText("King Mongkut's University of Technology Thonburi ");
+        Home.add(lb_kmutt, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 20, 460, 40));
+
+        nav.setBackground(new java.awt.Color(204, 204, 204));
+        nav.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        pic_book.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Project/open-book.png"))); // NOI18N
+        nav.add(pic_book, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, -1));
+
+        CommunityForum.setFont(new java.awt.Font("SansSerif", 1, 24)); // NOI18N
+        CommunityForum.setText("Community Forum");
+        nav.add(CommunityForum, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 10, -1, -1));
+
+        text_search.setBackground(new java.awt.Color(204, 204, 204));
+        text_search.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
+        text_search.setForeground(new java.awt.Color(255, 102, 0));
+        text_search.setText(" Topic");
+        text_search.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 102, 0)));
+        text_search.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                text_searchFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                text_searchFocusLost(evt);
+            }
+        });
+        nav.add(text_search, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 20, 150, 30));
+
+        search.setBackground(new java.awt.Color(255, 255, 255));
+        search.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
+        search.setForeground(new java.awt.Color(255, 102, 0));
+        search.setText("Search");
+        nav.add(search, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 20, 80, 30));
+
+        Home.add(nav, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 80, 770, 60));
+
+        line1.setBackground(new java.awt.Color(255, 102, 0));
+        line1.setMaximumSize(new java.awt.Dimension(2147483647, 2147480000));
+        line1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        Home.add(line1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 60, 780, 2));
+
+        logout.setBackground(new java.awt.Color(255, 102, 0));
+        logout.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
+        logout.setForeground(new java.awt.Color(255, 255, 255));
+        logout.setText("Log Out");
+        logout.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                logoutActionPerformed(evt);
+            }
+        });
+        Home.add(logout, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 30, 80, -1));
+
+        nav2.setBackground(new java.awt.Color(255, 102, 0));
+
+        line3.setBackground(new java.awt.Color(204, 204, 204));
+        line3.setPreferredSize(new java.awt.Dimension(730, 5));
+
+        javax.swing.GroupLayout line3Layout = new javax.swing.GroupLayout(line3);
+        line3.setLayout(line3Layout);
+        line3Layout.setHorizontalGroup(
+            line3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(panelBG, javax.swing.GroupLayout.PREFERRED_SIZE, 530, javax.swing.GroupLayout.PREFERRED_SIZE))
+        line3Layout.setVerticalGroup(
+            line3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 5, Short.MAX_VALUE)
         );
+
+        topic.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
+        topic.setForeground(new java.awt.Color(255, 255, 255));
+        topic.setText("Topic");
+
+        jLabel3.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setText("Writer");
+
+        jLabel4.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel4.setText("Recent Post");
+
+        javax.swing.GroupLayout nav2Layout = new javax.swing.GroupLayout(nav2);
+        nav2.setLayout(nav2Layout);
+        nav2Layout.setHorizontalGroup(
+            nav2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(line3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(nav2Layout.createSequentialGroup()
+                .addGap(60, 60, 60)
+                .addComponent(topic)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 300, Short.MAX_VALUE)
+                .addComponent(jLabel3)
+                .addGap(149, 149, 149)
+                .addComponent(jLabel4)
+                .addGap(71, 71, 71))
+        );
+        nav2Layout.setVerticalGroup(
+            nav2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(nav2Layout.createSequentialGroup()
+                .addComponent(line3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(nav2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(nav2Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(nav2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel4))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, nav2Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(topic)
+                        .addContainerGap())))
+        );
+
+        Home.add(nav2, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 150, 730, 40));
+
+        lb_user.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        lb_user.setForeground(new java.awt.Color(206, 206, 206));
+        lb_user.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        Home.add(lb_user, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 30, 160, 30));
+
+        getContentPane().add(Home, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 900, 530));
+
+        PostNotLogin2.setBackground(new java.awt.Color(255, 255, 255));
+        PostNotLogin2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        panelBar7.setBackground(new java.awt.Color(255, 102, 0));
+        panelBar7.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        kmutt8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        kmutt8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Project/kmutt1.png"))); // NOI18N
+        panelBar7.add(kmutt8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 140, 100));
+
+        home8.setBackground(new java.awt.Color(255, 102, 0));
+        home8.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
+        home8.setForeground(new java.awt.Color(255, 255, 255));
+        home8.setText("HOME");
+        home8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                home8ActionPerformed(evt);
+            }
+        });
+        panelBar7.add(home8, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 190, 150, 40));
+
+        addTopic5.setBackground(new java.awt.Color(255, 255, 255));
+        addTopic5.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
+        addTopic5.setForeground(new java.awt.Color(255, 102, 0));
+        addTopic5.setText("ADD TOPIC");
+        panelBar7.add(addTopic5, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 250, 150, 40));
+
+        PostNotLogin2.add(panelBar7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 130, 530));
+
+        lb_kmutt5.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
+        lb_kmutt5.setForeground(new java.awt.Color(255, 102, 0));
+        lb_kmutt5.setText("King Mongkut's University of Technology Thonburi ");
+        PostNotLogin2.add(lb_kmutt5, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 20, 460, 40));
+
+        jPanel16.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        PostNotLogin2.add(jPanel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 250, -1, -1));
+
+        jPanel17.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel17.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel11.setFont(new java.awt.Font("SansSerif", 1, 24)); // NOI18N
+        jLabel11.setText("Add Post");
+        jPanel17.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 20, -1, -1));
+
+        jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Project/add.png"))); // NOI18N
+        jPanel17.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, -1, -1));
+
+        PostNotLogin2.add(jPanel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 80, 770, 60));
+
+        jPanel18.setBackground(new java.awt.Color(255, 102, 0));
+        jPanel18.setMaximumSize(new java.awt.Dimension(2147483647, 2147480000));
+        jPanel18.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        PostNotLogin2.add(jPanel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 60, 780, 2));
+
+        jLabel13.setFont(new java.awt.Font("SansSerif", 0, 24)); // NOI18N
+        jLabel13.setForeground(new java.awt.Color(255, 102, 0));
+        jLabel13.setText("Please Sign in or Sign up");
+        PostNotLogin2.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 310, -1, -1));
+
+        login2.setBackground(new java.awt.Color(255, 102, 0));
+        login2.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
+        login2.setForeground(new java.awt.Color(255, 255, 255));
+        login2.setText("Sign in");
+        login2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                login2ActionPerformed(evt);
+            }
+        });
+        PostNotLogin2.add(login2, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 20, 80, 30));
+
+        register2.setBackground(new java.awt.Color(204, 204, 204));
+        register2.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
+        register2.setForeground(new java.awt.Color(255, 102, 0));
+        register2.setText("Sing Up");
+        register2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                register2ActionPerformed(evt);
+            }
+        });
+        PostNotLogin2.add(register2, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 20, 80, 30));
+
+        line8.setBackground(new java.awt.Color(0, 0, 0));
+
+        javax.swing.GroupLayout line8Layout = new javax.swing.GroupLayout(line8);
+        line8.setLayout(line8Layout);
+        line8Layout.setHorizontalGroup(
+            line8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 2, Short.MAX_VALUE)
+        );
+        line8Layout.setVerticalGroup(
+            line8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 30, Short.MAX_VALUE)
+        );
+
+        PostNotLogin2.add(line8, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 20, 2, 30));
+
+        getContentPane().add(PostNotLogin2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+
+        Post.setBackground(new java.awt.Color(255, 255, 255));
+        Post.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        panelBar1.setBackground(new java.awt.Color(255, 102, 0));
+        panelBar1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        kmutt2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        kmutt2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Project/kmutt1.png"))); // NOI18N
+        panelBar1.add(kmutt2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 140, 100));
+
+        home2.setBackground(new java.awt.Color(255, 102, 0));
+        home2.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
+        home2.setForeground(new java.awt.Color(255, 255, 255));
+        home2.setText("HOME");
+        home2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                home2ActionPerformed(evt);
+            }
+        });
+        panelBar1.add(home2, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 190, 150, 40));
+
+        addTopic2.setBackground(new java.awt.Color(255, 255, 255));
+        addTopic2.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
+        addTopic2.setForeground(new java.awt.Color(255, 102, 0));
+        addTopic2.setText("ADD TOPIC");
+        panelBar1.add(addTopic2, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 250, 150, 40));
+
+        profile1.setBackground(new java.awt.Color(255, 102, 0));
+        profile1.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
+        profile1.setForeground(new java.awt.Color(255, 255, 255));
+        profile1.setText("PROFILE");
+        profile1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                profile1ActionPerformed(evt);
+            }
+        });
+        panelBar1.add(profile1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 310, 150, 40));
+
+        Post.add(panelBar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 130, 530));
+
+        lb_kmutt1.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
+        lb_kmutt1.setForeground(new java.awt.Color(255, 102, 0));
+        lb_kmutt1.setText("King Mongkut's University of Technology Thonburi ");
+        Post.add(lb_kmutt1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 20, 460, 40));
+
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        Post.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 250, -1, -1));
+
+        jPanel7.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel7.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel1.setFont(new java.awt.Font("SansSerif", 1, 24)); // NOI18N
+        jLabel1.setText("Add Post");
+        jPanel7.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 20, -1, -1));
+
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Project/add.png"))); // NOI18N
+        jPanel7.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, -1, -1));
+
+        Post.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 80, 770, 60));
+
+        jPanel8.setBackground(new java.awt.Color(255, 102, 0));
+        jPanel8.setMaximumSize(new java.awt.Dimension(2147483647, 2147480000));
+        jPanel8.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        Post.add(jPanel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 60, 780, 2));
+
+        content.setColumns(20);
+        content.setRows(5);
+        jScrollPane2.setViewportView(content);
+
+        Post.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 220, 450, 240));
+
+        jLabel6.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(153, 153, 153));
+        jLabel6.setText("Content :");
+        Post.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 220, 90, -1));
+
+        cancle.setBackground(new java.awt.Color(204, 204, 204));
+        cancle.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
+        cancle.setForeground(new java.awt.Color(255, 102, 0));
+        cancle.setText("Cancle");
+        cancle.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cancleActionPerformed(evt);
+            }
+        });
+        Post.add(cancle, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 470, -1, -1));
+
+        jLabel2.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(153, 153, 153));
+        jLabel2.setText("Topic : ");
+        Post.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 170, -1, -1));
+        Post.add(topic1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 160, 450, 40));
+
+        submit.setBackground(new java.awt.Color(255, 102, 0));
+        submit.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
+        submit.setForeground(new java.awt.Color(255, 255, 255));
+        submit.setText("Enter");
+        submit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                submitActionPerformed(evt);
+            }
+        });
+        Post.add(submit, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 470, 90, -1));
+
+        logout1.setBackground(new java.awt.Color(255, 102, 0));
+        logout1.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
+        logout1.setForeground(new java.awt.Color(255, 255, 255));
+        logout1.setText("Log Out");
+        logout1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                logout1ActionPerformed(evt);
+            }
+        });
+        Post.add(logout1, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 30, 80, -1));
+
+        lb_user1.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        lb_user1.setForeground(new java.awt.Color(206, 206, 206));
+        lb_user1.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        Post.add(lb_user1, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 30, 160, 30));
+
+        getContentPane().add(Post, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+
+        Ps.setBackground(new java.awt.Color(255, 255, 255));
+        Ps.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        panelBar2.setBackground(new java.awt.Color(255, 102, 0));
+        panelBar2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        kmutt3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        kmutt3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Project/kmutt1.png"))); // NOI18N
+        panelBar2.add(kmutt3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 140, 100));
+
+        home3.setBackground(new java.awt.Color(255, 102, 0));
+        home3.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
+        home3.setForeground(new java.awt.Color(255, 255, 255));
+        home3.setText("HOME");
+        home3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                home3ActionPerformed(evt);
+            }
+        });
+        panelBar2.add(home3, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 190, 150, 40));
+
+        addTopic3.setBackground(new java.awt.Color(255, 102, 0));
+        addTopic3.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
+        addTopic3.setForeground(new java.awt.Color(255, 255, 255));
+        addTopic3.setText("ADD TOPIC");
+        addTopic3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addTopic3ActionPerformed(evt);
+            }
+        });
+        panelBar2.add(addTopic3, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 250, 150, 40));
+
+        profile2.setBackground(new java.awt.Color(255, 102, 0));
+        profile2.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
+        profile2.setForeground(new java.awt.Color(255, 255, 255));
+        profile2.setText("PROFILE");
+        profile2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                profile2ActionPerformed(evt);
+            }
+        });
+        panelBar2.add(profile2, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 310, 150, 40));
+
+        Ps.add(panelBar2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 130, 530));
+
+        lb_kmutt2.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
+        lb_kmutt2.setForeground(new java.awt.Color(255, 102, 0));
+        lb_kmutt2.setText("King Mongkut's University of Technology Thonburi ");
+        Ps.add(lb_kmutt2, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 20, 460, 40));
+
+        nav1.setBackground(new java.awt.Color(204, 204, 204));
+        nav1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel7.setFont(new java.awt.Font("SansSerif", 1, 24)); // NOI18N
+        jLabel7.setText("Post");
+        nav1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 20, -1, -1));
+
+        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Project/open-book.png"))); // NOI18N
+        nav1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, -1, -1));
+
+        Ps.add(nav1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 80, 770, 60));
+
+        line4.setBackground(new java.awt.Color(255, 102, 0));
+        line4.setMaximumSize(new java.awt.Dimension(2147483647, 2147480000));
+        line4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        Ps.add(line4, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 60, 780, 2));
+
+        logout2.setBackground(new java.awt.Color(255, 102, 0));
+        logout2.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
+        logout2.setForeground(new java.awt.Color(255, 255, 255));
+        logout2.setText("Log Out");
+        logout2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                logout2ActionPerformed(evt);
+            }
+        });
+        Ps.add(logout2, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 30, 80, -1));
+
+        showPostList1.setBackground(new java.awt.Color(255, 255, 255));
+        showPostList1.setForeground(new java.awt.Color(255, 255, 255));
+
+        PostShow.setBackground(new java.awt.Color(153, 153, 153));
+        PostShow.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+
+        postShow.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+
+        javax.swing.GroupLayout PostShowLayout = new javax.swing.GroupLayout(PostShow);
+        PostShow.setLayout(PostShowLayout);
+        PostShowLayout.setHorizontalGroup(
+            PostShowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PostShowLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(postShow, javax.swing.GroupLayout.PREFERRED_SIZE, 578, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(37, Short.MAX_VALUE))
+        );
+        PostShowLayout.setVerticalGroup(
+            PostShowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PostShowLayout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addComponent(postShow, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(27, Short.MAX_VALUE))
+        );
+
+        jButton1.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
+        jButton1.setText("Comment");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        textComment.setColumns(20);
+        textComment.setRows(5);
+        jScrollPane4.setViewportView(textComment);
+
+        javax.swing.GroupLayout showPostList1Layout = new javax.swing.GroupLayout(showPostList1);
+        showPostList1.setLayout(showPostList1Layout);
+        showPostList1Layout.setHorizontalGroup(
+            showPostList1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(showPostList1Layout.createSequentialGroup()
+                .addGap(54, 54, 54)
+                .addGroup(showPostList1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(PostShow, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(showPostList1Layout.createSequentialGroup()
+                        .addGap(84, 84, 84)
+                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 470, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(showPostList1Layout.createSequentialGroup()
+                        .addGap(274, 274, 274)
+                        .addComponent(jButton1)))
+                .addContainerGap(70, Short.MAX_VALUE))
+        );
+        showPostList1Layout.setVerticalGroup(
+            showPostList1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(showPostList1Layout.createSequentialGroup()
+                .addGap(19, 19, 19)
+                .addComponent(PostShow, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jButton1)
+                .addContainerGap(158, Short.MAX_VALUE))
+        );
+
+        jScrollPane3.setViewportView(showPostList1);
+
+        Ps.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 140, 770, 390));
+
+        lb_user2.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        lb_user2.setForeground(new java.awt.Color(206, 206, 206));
+        lb_user2.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        Ps.add(lb_user2, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 30, 160, 30));
+
+        getContentPane().add(Ps, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+
+        Profile.setBackground(new java.awt.Color(255, 255, 255));
+        Profile.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        panelBar4.setBackground(new java.awt.Color(255, 102, 0));
+        panelBar4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        kmutt5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        kmutt5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Project/kmutt1.png"))); // NOI18N
+        panelBar4.add(kmutt5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 140, 100));
+
+        home5.setBackground(new java.awt.Color(255, 102, 0));
+        home5.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
+        home5.setForeground(new java.awt.Color(255, 255, 255));
+        home5.setText("HOME");
+        home5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                home5ActionPerformed(evt);
+            }
+        });
+        panelBar4.add(home5, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 190, 150, 40));
+
+        profile3.setBackground(new java.awt.Color(255, 255, 255));
+        profile3.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
+        profile3.setForeground(new java.awt.Color(255, 102, 0));
+        profile3.setText("PROFILE");
+        panelBar4.add(profile3, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 310, 150, 40));
+
+        addTopic4.setBackground(new java.awt.Color(255, 102, 0));
+        addTopic4.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
+        addTopic4.setForeground(new java.awt.Color(255, 255, 255));
+        addTopic4.setText("ADD TOPIC");
+        addTopic4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addTopic4ActionPerformed(evt);
+            }
+        });
+        panelBar4.add(addTopic4, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 250, 150, 40));
+
+        Profile.add(panelBar4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 130, 530));
+
+        lb_kmutt4.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
+        lb_kmutt4.setForeground(new java.awt.Color(255, 102, 0));
+        lb_kmutt4.setText("King Mongkut's University of Technology Thonburi ");
+        Profile.add(lb_kmutt4, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 20, 460, 40));
+
+        pn_bar.setBackground(new java.awt.Color(204, 204, 204));
+        pn_bar.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        lb_icon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Project/3.png"))); // NOI18N
+        pn_bar.add(lb_icon, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 40, 40));
+
+        lb_profilebar.setFont(new java.awt.Font("SansSerif", 1, 24)); // NOI18N
+        lb_profilebar.setText("PROFILE");
+        pn_bar.add(lb_profilebar, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 10, 130, 30));
+
+        jb_editProfile.setBackground(new java.awt.Color(255, 255, 255));
+        jb_editProfile.setForeground(new java.awt.Color(255, 102, 0));
+        jb_editProfile.setText("EDIT PROFILE");
+        pn_bar.add(jb_editProfile, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 10, 120, 30));
+
+        Profile.add(pn_bar, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 80, 770, 50));
+
+        jPanel14.setBackground(new java.awt.Color(255, 102, 0));
+        jPanel14.setMaximumSize(new java.awt.Dimension(2147483647, 2147480000));
+        jPanel14.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        Profile.add(jPanel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 60, 780, 2));
+
+        jb_logout.setBackground(new java.awt.Color(255, 102, 0));
+        jb_logout.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
+        jb_logout.setForeground(new java.awt.Color(255, 255, 255));
+        jb_logout.setText("Log Out");
+        jb_logout.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jb_logoutActionPerformed(evt);
+            }
+        });
+        Profile.add(jb_logout, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 30, 80, -1));
+
+        pic.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Project/man.png"))); // NOI18N
+
+        javax.swing.GroupLayout pn_picLayout = new javax.swing.GroupLayout(pn_pic);
+        pn_pic.setLayout(pn_picLayout);
+        pn_picLayout.setHorizontalGroup(
+            pn_picLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pn_picLayout.createSequentialGroup()
+                .addGap(19, 19, 19)
+                .addComponent(pic)
+                .addContainerGap(21, Short.MAX_VALUE))
+        );
+        pn_picLayout.setVerticalGroup(
+            pn_picLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pn_picLayout.createSequentialGroup()
+                .addGap(22, 22, 22)
+                .addComponent(pic)
+                .addContainerGap(28, Short.MAX_VALUE))
+        );
+
+        Profile.add(pn_pic, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 150, -1, -1));
+
+        studentID.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
+        studentID.setForeground(new java.awt.Color(153, 153, 153));
+        studentID.setText("จำนวนกระทู้ที่คอมเม้น :");
+        Profile.add(studentID, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 220, 160, 20));
+
+        username1.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
+        username1.setForeground(new java.awt.Color(153, 153, 153));
+        username1.setText("Username :");
+        Profile.add(username1, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 170, 80, 20));
+
+        pn_black.setBackground(new java.awt.Color(0, 0, 0));
+        pn_black.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        pn_orange.setBackground(new java.awt.Color(255, 102, 0));
+        pn_orange.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        lb_activity.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
+        lb_activity.setForeground(new java.awt.Color(255, 255, 255));
+        lb_activity.setText("ACTIVITY");
+        pn_orange.add(lb_activity, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 90, 30));
+
+        pn_black.add(pn_orange, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+
+        Profile.add(pn_black, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 280, 690, 30));
+
+        jScrollPane6.setBackground(new java.awt.Color(255, 255, 255));
+        jScrollPane6.setForeground(new java.awt.Color(255, 255, 255));
+
+        jPanel15.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel15.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jPanel15.setForeground(new java.awt.Color(255, 255, 255));
+
+        javax.swing.GroupLayout jPanel15Layout = new javax.swing.GroupLayout(jPanel15);
+        jPanel15.setLayout(jPanel15Layout);
+        jPanel15Layout.setHorizontalGroup(
+            jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 669, Short.MAX_VALUE)
+        );
+        jPanel15Layout.setVerticalGroup(
+            jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 320, Short.MAX_VALUE)
+        );
+
+        jScrollPane6.setViewportView(jPanel15);
+
+        Profile.add(jScrollPane6, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 310, 690, 190));
+
+        studentID1.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
+        studentID1.setForeground(new java.awt.Color(153, 153, 153));
+        studentID1.setText("StudentID :");
+        Profile.add(studentID1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 170, 80, 20));
+
+        studentID2.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
+        studentID2.setForeground(new java.awt.Color(153, 153, 153));
+        studentID2.setText("จำนวนกระทู้ที่สร้าง  :");
+        Profile.add(studentID2, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 220, 130, 20));
+
+        lb_user3.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        lb_user3.setForeground(new java.awt.Color(206, 206, 206));
+        lb_user3.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        Profile.add(lb_user3, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 30, 160, 30));
+
+        getContentPane().add(Profile, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginActionPerformed
         // TODO add your handling code here:
+
         Connection con = null;
         try {
             con = Database.getConnection();
             Statement stm = con.createStatement();
-            String sql = "select user_pass from user where username =" + "'" + username.getText() + "'";
+            String sql = "select * from user where username ='" + username.getText() + "'";
             ResultSet rs = stm.executeQuery(sql);
             userName = username.getText();
+
             if (rs.next()) {
                 String passFromDatabase = rs.getString("user_pass");
-                if (password.getText().equals(passFromDatabase)) {
-                    String sqlUserId = "select userID from user where username =" + "'" + userName + "'";
-                    ResultSet rsUserId = stm.executeQuery(sqlUserId);
-                    if (rsUserId.next()) {
-                        userId = rsUserId.getInt("userID");
+                String userFromDatabase = rs.getString("username");
+                //if check username
+                if (username.getText().equals(userFromDatabase)) {
+                    //if check password
+                    if (password.getText().equals(passFromDatabase)) {
+
+                        String sqlUserId = "select * from user where username ='" + userName + "'";
+                        ResultSet rsUserId = stm.executeQuery(sqlUserId);
+                        lb_user.setText(lb_user.getText() + "Welcome : " + userName);
+                        lb_user1.setText("");
+                        lb_user2.setText("");
+                        lb_user3.setText("");
+                        Home.setVisible(true);
+                        LoginRegister.setVisible(false);
+
+                        if (rsUserId.next()) {
+                            userId = rsUserId.getInt("userID");
+                        }
+
+                    } else {
+                        JOptionPane.showMessageDialog(null, "username หรือ password ไม่ถูกต้อง");
                     }
-                    System.out.println(userId);
-                    HomeShowPostList home = new HomeShowPostList();
-                    home.setVisible(true);
-                    this.setVisible(false);
+
                 } else {
                     JOptionPane.showMessageDialog(null, "username หรือ password ไม่ถูกต้อง");
                 }
+
             } else {
                 JOptionPane.showMessageDialog(null, "username หรือ password ไม่ถูกต้อง");
             }
 
         } catch (Exception e) {
-            e.printStackTrace();
+            System.out.println(e);
         }
+
         try {
             con.close();
         } catch (Exception e) {
@@ -421,11 +1489,558 @@ public class LoginAndRegister extends javax.swing.JFrame {
 
     private void homeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_homeActionPerformed
         // TODO add your handling code here:
-        HomeShowPostListNotLogin home = new HomeShowPostListNotLogin();
-        home.setVisible(true);
-        this.setVisible(false);
+        HomeNotLogin.setVisible(true);
+        LoginRegister.setVisible(false);
+        Home.setVisible(false);
+        PostNotLogin2.setVisible(false);
+        Post.setVisible(false);
+        Ps.setVisible(false);
+        Profile.setVisible(false);
     }//GEN-LAST:event_homeActionPerformed
 
+    private void profileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_profileActionPerformed
+        // TODO add your handling code here:
+        HomeNotLogin.setVisible(false);
+        LoginRegister.setVisible(false);
+        Home.setVisible(false);
+        PostNotLogin2.setVisible(false);
+        Post.setVisible(false);
+        Ps.setVisible(false);
+        Profile.setVisible(true);
+        lb_user.setText("");
+        lb_user1.setText("");
+        lb_user2.setText("");
+        lb_user3.setText(lb_user3.getText() + "Welcome : " + userName);
+    }//GEN-LAST:event_profileActionPerformed
+
+    private void addTopic1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addTopic1ActionPerformed
+        // TODO add your handling code here:
+        HomeNotLogin.setVisible(false);
+        LoginRegister.setVisible(false);
+        Home.setVisible(false);
+        PostNotLogin2.setVisible(false);
+        Post.setVisible(true);
+        Ps.setVisible(false);
+        Profile.setVisible(false);
+        lb_user.setText("");
+        lb_user1.setText(lb_user1.getText() + "Welcome : " + userName);
+        lb_user2.setText("");
+        lb_user3.setText("");
+    }//GEN-LAST:event_addTopic1ActionPerformed
+
+    private void text_searchFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_text_searchFocusGained
+        // TODO add your handling code here:
+        if (text_search.getText().equals(" Topic")) {
+            text_search.setText("");
+        }
+    }//GEN-LAST:event_text_searchFocusGained
+
+    private void text_searchFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_text_searchFocusLost
+        // TODO add your handling code here:
+        if (text_search.getText().equals("")) {
+            text_search.setText(" Topic");
+        }
+    }//GEN-LAST:event_text_searchFocusLost
+
+    private void logoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutActionPerformed
+        // TODO add your handling code here:
+        HomeNotLogin.setVisible(true);
+        LoginRegister.setVisible(false);
+        Home.setVisible(false);
+        PostNotLogin2.setVisible(false);
+        Post.setVisible(false);
+        Ps.setVisible(false);
+        Profile.setVisible(false);
+
+        lb_user.setText("");
+        lb_user1.setText("");
+        lb_user2.setText("");
+        lb_user3.setText("");
+    }//GEN-LAST:event_logoutActionPerformed
+
+    private void home2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_home2ActionPerformed
+        // TODO add your handling code here:
+        HomeNotLogin.setVisible(false);
+        LoginRegister.setVisible(false);
+        Home.setVisible(true);
+        PostNotLogin2.setVisible(false);
+        Post.setVisible(false);
+        Ps.setVisible(false);
+        Profile.setVisible(false);
+
+        lb_user.setText(lb_user.getText() + "Welcome : " + userName);
+        lb_user1.setText("");
+        lb_user2.setText("");
+        lb_user3.setText("");
+
+    }//GEN-LAST:event_home2ActionPerformed
+
+    private void profile1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_profile1ActionPerformed
+        HomeNotLogin.setVisible(false);
+        LoginRegister.setVisible(false);
+        Home.setVisible(false);
+        PostNotLogin2.setVisible(false);
+        Post.setVisible(false);
+        Ps.setVisible(false);
+        Profile.setVisible(true);
+
+        lb_user.setText("");
+        lb_user1.setText("");
+        lb_user2.setText("");
+        lb_user3.setText(lb_user3.getText() + "Welcome : " + userName);
+    }//GEN-LAST:event_profile1ActionPerformed
+
+    private void cancleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancleActionPerformed
+        // TODO add your handling code here:
+        HomeNotLogin.setVisible(false);
+        LoginRegister.setVisible(false);
+        Home.setVisible(true);
+        PostNotLogin2.setVisible(false);
+        Post.setVisible(false);
+        Ps.setVisible(false);
+        Profile.setVisible(false);
+
+        lb_user.setText(lb_user.getText() + "Welcome : " + userName);
+        lb_user1.setText("");
+        lb_user2.setText("");
+        lb_user3.setText("");
+    }//GEN-LAST:event_cancleActionPerformed
+
+    private void submitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitActionPerformed
+        // TODO add your handling code here:
+        Connection con = null;
+        try {
+            con = Database.getConnection();
+            String sql = "insert into Post(postID,post_name,post_description,post_createDate,voteScore,post_editDate,isPin,userID) values (?,?,?,?,?,?,?,?)";
+            PreparedStatement stm = con.prepareStatement(sql);
+            int postId = genId();
+            int voteS = genVote();
+            Date timedate = new Date();
+            Timestamp tm = new Timestamp(timedate.getTime());
+            stm.setInt(1, postId);
+            stm.setString(2, topic1.getText());
+            stm.setString(3, content.getText());
+            stm.setTimestamp(4, tm);
+            stm.setInt(5, voteS);
+            stm.setTimestamp(6, tm);
+            stm.setBoolean(7, false);
+            stm.setInt(8, LoginAndRegister.userId);
+            int data = stm.executeUpdate();
+//          getTField = topic.getText();
+//          getTArea = content.getText();
+
+            String sqlPostNow = "select max(postID) from Post where userID =" + "'" + LoginAndRegister.userId + "'";
+            Statement stmNow = con.createStatement();
+            ResultSet rsPostNow = stmNow.executeQuery(sqlPostNow);
+            if (rsPostNow.next()) {
+                getTField = rsPostNow.getString("max(postID)");
+                System.out.println(getTField);
+                String sqlPostTopic = "select post_name from Post where postID =" + "'" + getTField + "'";
+                String sqlPostCon = "select post_description from Post where postID =" + "'" + getTField + "'";
+                ResultSet rsPostTopic = stmNow.executeQuery(sqlPostTopic);
+
+                if (rsPostTopic.next()) {
+                    postName = rsPostTopic.getString("post_name");
+                    System.out.println(postName);
+                }
+                ResultSet rsPostCon = stmNow.executeQuery(sqlPostCon);
+                if (rsPostCon.next()) {
+                    postCon = rsPostCon.getString("post_description");
+                    System.out.println(postCon);
+                }
+
+            }
+
+            JOptionPane.showMessageDialog(null, "ตั้งกระทู้เรียบร้อย");
+            postShow.setText(postShow.getText() + postName + "\n" + postCon);
+
+            HomeNotLogin.setVisible(false);
+            LoginRegister.setVisible(false);
+            Home.setVisible(false);
+            PostNotLogin2.setVisible(false);
+            PostNotLogin2.setVisible(false);
+            Post.setVisible(false);
+            Ps.setVisible(true);
+            Profile.setVisible(false);
+
+            lb_user.setText("");
+            lb_user1.setText("");
+            lb_user2.setText(lb_user2.getText() + "Welcome : " + userName);
+            lb_user3.setText("");
+
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        try {
+            con.close();
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+    }//GEN-LAST:event_submitActionPerformed
+
+    public static int genId() throws SQLException {
+        int count = 1;
+        Connection con = Database.getConnection();
+        Statement stm = con.createStatement();
+        String sql = "select max(postId) from Post";
+        ResultSet rs = stm.executeQuery(sql);
+        if (rs.next()) {
+            count = rs.getInt("max(postId)");
+            count++;
+        } else {
+            count = 1;
+        }
+
+        try {
+            con.close();
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        return count;
+    }
+
+    public static int genVote() throws SQLException {
+        int countVote = 1;
+        Connection con = Database.getConnection();
+        Statement stm = con.createStatement();
+        String sql = "select voteScore from Post";
+        ResultSet rs = stm.executeQuery(sql);
+        if (rs.next()) {
+            countVote = rs.getInt("voteScore");
+            countVote++;
+        } else {
+            countVote = 1;
+        }
+        try {
+            con.close();
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        return countVote;
+    }
+
+    private void logout1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logout1ActionPerformed
+        // TODO add your handling code here:
+        HomeNotLogin.setVisible(true);
+        LoginRegister.setVisible(false);
+        Home.setVisible(false);
+        PostNotLogin2.setVisible(false);
+        PostNotLogin2.setVisible(false);
+        Post.setVisible(false);
+        Ps.setVisible(false);
+        Profile.setVisible(false);
+
+        lb_user.setText("");
+        lb_user1.setText("");
+        lb_user2.setText("");
+        lb_user3.setText("");
+    }//GEN-LAST:event_logout1ActionPerformed
+
+    private void home3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_home3ActionPerformed
+        // TODO add your handling code here:
+        HomeNotLogin.setVisible(false);
+        LoginRegister.setVisible(false);
+        Home.setVisible(true);
+        PostNotLogin2.setVisible(false);
+        Post.setVisible(false);
+        Ps.setVisible(false);
+        Profile.setVisible(false);
+
+        lb_user.setText(lb_user.getText() + "Welcome : " + userName);
+        lb_user1.setText("");
+        lb_user2.setText("");
+        lb_user3.setText("");
+    }//GEN-LAST:event_home3ActionPerformed
+
+    private void addTopic3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addTopic3ActionPerformed
+        // TODO add your handling code here:
+        HomeNotLogin.setVisible(false);
+        LoginRegister.setVisible(false);
+        Home.setVisible(false);
+        PostNotLogin2.setVisible(false);
+        Post.setVisible(true);
+        Ps.setVisible(false);
+        Profile.setVisible(false);
+
+        lb_user.setText("");
+        lb_user1.setText(lb_user1.getText() + "Welcome : " + userName);
+        lb_user2.setText("");
+        lb_user3.setText("");
+    }//GEN-LAST:event_addTopic3ActionPerformed
+
+    private void profile2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_profile2ActionPerformed
+        // TODO add your handling code here:
+        HomeNotLogin.setVisible(false);
+        LoginRegister.setVisible(false);
+        Home.setVisible(false);
+        PostNotLogin2.setVisible(false);
+        Post.setVisible(false);
+        Ps.setVisible(false);
+        Profile.setVisible(true);
+
+        lb_user.setText("");
+        lb_user1.setText("");
+        lb_user2.setText("");
+        lb_user3.setText(lb_user3.getText() + "Welcome : " + userName);
+
+    }//GEN-LAST:event_profile2ActionPerformed
+
+    private void logout2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logout2ActionPerformed
+        // TODO add your handling code here:
+        HomeNotLogin.setVisible(true);
+        LoginRegister.setVisible(false);
+        Home.setVisible(false);
+        PostNotLogin2.setVisible(false);
+        Post.setVisible(false);
+        Ps.setVisible(false);
+        Profile.setVisible(false);
+
+        lb_user.setText("");
+        lb_user1.setText("");
+        lb_user2.setText("");
+        lb_user3.setText("");
+    }//GEN-LAST:event_logout2ActionPerformed
+
+    private void addTopicActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addTopicActionPerformed
+        // TODO add your handling code here:
+        HomeNotLogin.setVisible(false);
+        LoginRegister.setVisible(false);
+        Home.setVisible(false);
+        PostNotLogin2.setVisible(true);
+        Post.setVisible(false);
+        Ps.setVisible(false);
+        Profile.setVisible(false);
+
+        lb_user.setText("");
+        lb_user1.setText(lb_user.getText() + "Welcome : " + userName);
+        lb_user2.setText("");
+        lb_user3.setText("");
+    }//GEN-LAST:event_addTopicActionPerformed
+
+    private void text_search1FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_text_search1FocusGained
+        // TODO add your handling code here:
+        if (text_search1.getText().equals(" Topic")) {
+            text_search1.setText("");
+        }
+    }//GEN-LAST:event_text_search1FocusGained
+
+    private void text_search1FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_text_search1FocusLost
+        // TODO add your handling code here:
+        if (text_search1.getText().equals("")) {
+            text_search1.setText(" Topic");
+        }
+    }//GEN-LAST:event_text_search1FocusLost
+
+    private void login1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_login1ActionPerformed
+        // TODO add your handling code here:
+        HomeNotLogin.setVisible(false);
+        LoginRegister.setVisible(true);
+        Home.setVisible(false);
+        PostNotLogin2.setVisible(false);
+        Post.setVisible(false);
+        Ps.setVisible(false);
+        Profile.setVisible(false);
+
+    }//GEN-LAST:event_login1ActionPerformed
+
+    private void register1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_register1ActionPerformed
+        // TODO add your handling code here:
+        HomeNotLogin.setVisible(false);
+        LoginRegister.setVisible(true);
+        Home.setVisible(false);
+        PostNotLogin2.setVisible(false);
+        Post.setVisible(false);
+        Ps.setVisible(false);
+        Profile.setVisible(false);
+    }//GEN-LAST:event_register1ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        Connection con = null;
+        try {
+            con = Database.getConnection();
+
+            String sql = "insert into Comment (commentID,comment_description,comment_date,postID,userID) values (?,?,?,?,?)";
+            PreparedStatement psm = con.prepareStatement(sql);
+            int num = genCommentID();
+            Date timedate = new Date();
+            Timestamp tm = new Timestamp(timedate.getTime());
+
+            psm.setInt(1, num);
+            psm.setString(2, textComment.getText());
+            psm.setTimestamp(3, tm);
+            psm.setInt(4, 1);
+            //String sql2 = "Select user.userID FROM user INNER JOIN Comment ON user.userID = Comment.userID";
+
+            psm.setInt(5, 2);
+
+            int x = psm.executeUpdate();
+
+            System.out.println(genCommentID());
+            System.out.println(textComment.getText());
+            System.out.println(tm);
+
+        } catch (Exception e) {
+            System.out.println("!!!!!!!!" + e);
+
+        }
+        try {
+            con.close();
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        JOptionPane.showMessageDialog(null, "คอมเมนต์เรียบร้อยแล้ว");
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void home5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_home5ActionPerformed
+        // TODO add your handling code here:
+        HomeNotLogin.setVisible(false);
+        LoginRegister.setVisible(false);
+        Home.setVisible(true);
+        PostNotLogin2.setVisible(false);
+        Post.setVisible(false);
+        Ps.setVisible(false);
+        Profile.setVisible(false);
+
+        lb_user.setText(lb_user.getText() + "Welcome : " + userName);
+        lb_user1.setText("");
+        lb_user2.setText("");
+        lb_user3.setText("");
+    }//GEN-LAST:event_home5ActionPerformed
+
+    private void addTopic4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addTopic4ActionPerformed
+        // TODO add your handling code here:
+        HomeNotLogin.setVisible(false);
+        LoginRegister.setVisible(false);
+        Home.setVisible(false);
+        PostNotLogin2.setVisible(false);
+        Post.setVisible(true);
+        Ps.setVisible(false);
+        Profile.setVisible(false);
+
+        lb_user.setText("");
+        lb_user1.setText(lb_user1.getText() + "Welcome : " + userName);
+        lb_user2.setText("");
+        lb_user3.setText("");
+    }//GEN-LAST:event_addTopic4ActionPerformed
+
+    private void jb_logoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_logoutActionPerformed
+        // TODO add your handling code here:
+        HomeNotLogin.setVisible(true);
+        LoginRegister.setVisible(false);
+        Home.setVisible(false);
+        PostNotLogin2.setVisible(false);
+        Post.setVisible(false);
+        Ps.setVisible(false);
+        Profile.setVisible(false);
+
+        lb_user.setText("");
+        lb_user1.setText("");
+        lb_user2.setText("");
+        lb_user3.setText("");
+    }//GEN-LAST:event_jb_logoutActionPerformed
+
+    private void home8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_home8ActionPerformed
+        // TODO add your handling code here:
+        HomeNotLogin.setVisible(true);
+        LoginRegister.setVisible(false);
+        Home.setVisible(false);
+        PostNotLogin2.setVisible(false);
+        Post.setVisible(false);
+        Ps.setVisible(false);
+        Profile.setVisible(false);
+    }//GEN-LAST:event_home8ActionPerformed
+
+    private void login2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_login2ActionPerformed
+        // TODO add your handling code here:
+        HomeNotLogin.setVisible(false);
+        LoginRegister.setVisible(true);
+        Home.setVisible(false);
+        PostNotLogin2.setVisible(false);
+        Post.setVisible(false);
+        Ps.setVisible(false);
+        Profile.setVisible(false);
+    }//GEN-LAST:event_login2ActionPerformed
+
+    private void register2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_register2ActionPerformed
+        // TODO add your handling code here:
+        HomeNotLogin.setVisible(false);
+        LoginRegister.setVisible(true);
+        Home.setVisible(false);
+        PostNotLogin2.setVisible(false);
+        Post.setVisible(false);
+        Ps.setVisible(false);
+        Profile.setVisible(false);
+    }//GEN-LAST:event_register2ActionPerformed
+
+//    public void showData() throws SQLException {
+//        Connection con = Database.getConnection();
+//        ResultSet rs = null;
+//        PreparedStatement pst = null;
+//        String sql = "SELECT post_name,userID,post_createDate FROM Post";
+//        try {
+//            pst = con.prepareStatement(sql);
+//            rs = pst.executeQuery();
+//            tt.setModel(DbUtils.resultSetToTableModel(rs));
+//        } catch (Exception e) {
+//            System.out.println(e);
+//        }
+//    }
+    
+    public static ArrayList<String> PostList() {
+        ArrayList postList = new ArrayList<String>();
+        Statement st;
+        Connection con = null;
+        try {
+            String sql = "SELECT post_name,post_createDate,user.username FROM Post inner join user on Post.userID=user.userID";
+            con = Database.getConnection();
+            st = con.createStatement();
+            ResultSet rs = st.executeQuery(sql);
+            while (rs.next()) {
+//                if (postList == null) {
+//                    postList = new ArrayList<>();
+//                }
+//                getDataFromDB(rs, pt);
+//                postList.add(pt);
+                Date dt = new Date(rs.getTimestamp("post_createDate").getTime());
+                postList.add(rs.getString("post_name")+"    "+ rs.getString("username")+"   "+ dt);
+            }
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+
+        try {
+            con.close();
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        
+        return postList;
+    }
+    
+    public void showPostList(){
+        int y = 70;
+        ArrayList<String> all = PostList();
+        JPanel[] jp = new JPanel[all.size()];
+        JLabel[] detail = new JLabel[all.size()];
+        
+        for(int i=0;i<all.size();i++){
+            jp[i] = new JPanel();
+            jp[i].setBackground(new Color(102,102,102));
+            jp[i].setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+            
+            detail[i] = new JLabel();
+            detail[i].setFont(new java.awt.Font("Leelawadee",0,18));
+            detail[i].setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+            detail[i].setText(all.get(i));
+            
+            jp[i].add(detail[i],new org.netbeans.lib.awtextra.AbsoluteConstraints(18,11,580,30));
+            PostListPanel.add(jp[i],new org.netbeans.lib.awtextra.AbsoluteConstraints(40,y,600,50));
+            y+=70;
+        }
+        PostListScrollPanel.setViewportView(PostListPanel);
+        System.out.println("dododo");
+    }
     /**
      * @param args the command line arguments
      */
@@ -456,30 +2071,160 @@ public class LoginAndRegister extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new LoginAndRegister().setVisible(true);
+                try {
+                    new LoginAndRegister().setVisible(true);
+                } catch (SQLException ex) {
+                    Logger.getLogger(LoginAndRegister.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel CommunityForum;
+    private javax.swing.JLabel CommunityForum1;
+    private javax.swing.JPanel Home;
+    private javax.swing.JPanel HomeNotLogin;
+    private javax.swing.JPanel LoginRegister;
+    private javax.swing.JPanel Post;
+    private javax.swing.JPanel PostListPanel;
+    private javax.swing.JScrollPane PostListScrollPanel;
+    private javax.swing.JPanel PostNotLogin2;
+    protected static javax.swing.JPanel PostShow;
+    private javax.swing.JPanel Profile;
+    private javax.swing.JPanel Ps;
+    private javax.swing.JButton addTopic;
+    private javax.swing.JButton addTopic1;
+    private javax.swing.JButton addTopic2;
+    private javax.swing.JButton addTopic3;
+    private javax.swing.JButton addTopic4;
+    private javax.swing.JButton addTopic5;
+    private javax.swing.JButton cancle;
     private javax.swing.JPasswordField confirmPassword_rt;
+    private javax.swing.JTextArea content;
     private javax.swing.JButton home;
+    private javax.swing.JButton home1;
+    private javax.swing.JButton home2;
+    private javax.swing.JButton home3;
+    private javax.swing.JButton home4;
+    private javax.swing.JButton home5;
+    private javax.swing.JButton home8;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel14;
+    private javax.swing.JPanel jPanel15;
+    private javax.swing.JPanel jPanel16;
+    private javax.swing.JPanel jPanel17;
+    private javax.swing.JPanel jPanel18;
+    private javax.swing.JPanel jPanel7;
+    private javax.swing.JPanel jPanel8;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JScrollPane jScrollPane6;
+    private javax.swing.JButton jb_editProfile;
+    private javax.swing.JButton jb_logout;
     private javax.swing.JLabel kmutt;
+    private javax.swing.JLabel kmutt1;
+    private javax.swing.JLabel kmutt2;
+    private javax.swing.JLabel kmutt3;
+    private javax.swing.JLabel kmutt4;
+    private javax.swing.JLabel kmutt5;
+    private javax.swing.JLabel kmutt8;
+    private javax.swing.JLabel lb_activity;
     private javax.swing.JLabel lb_confirmPassword_rt;
+    private javax.swing.JLabel lb_icon;
+    private javax.swing.JLabel lb_kmutt;
+    private javax.swing.JLabel lb_kmutt1;
+    private javax.swing.JLabel lb_kmutt2;
+    private javax.swing.JLabel lb_kmutt3;
+    private javax.swing.JLabel lb_kmutt4;
+    private javax.swing.JLabel lb_kmutt5;
     private javax.swing.JLabel lb_password;
     private javax.swing.JLabel lb_password_rt;
+    private javax.swing.JLabel lb_profilebar;
     private javax.swing.JLabel lb_register;
+    public static javax.swing.JLabel lb_user;
+    public static javax.swing.JLabel lb_user1;
+    public static javax.swing.JLabel lb_user2;
+    public static javax.swing.JLabel lb_user3;
     private javax.swing.JPanel line;
+    private javax.swing.JPanel line1;
     private javax.swing.JPanel line2;
+    private javax.swing.JPanel line3;
+    private javax.swing.JPanel line4;
+    private javax.swing.JPanel line5;
+    private javax.swing.JPanel line6;
+    private javax.swing.JPanel line7;
+    private javax.swing.JPanel line8;
     private javax.swing.JButton login;
-    private javax.swing.JPanel panelBG;
+    private javax.swing.JButton login1;
+    private javax.swing.JButton login2;
+    private javax.swing.JButton logout;
+    private javax.swing.JButton logout1;
+    private javax.swing.JButton logout2;
+    private javax.swing.JPanel nav;
+    private javax.swing.JPanel nav1;
+    private javax.swing.JPanel nav2;
+    private javax.swing.JPanel nav3;
+    private javax.swing.JPanel nav4;
+    private javax.swing.JPanel panelBar;
+    private javax.swing.JPanel panelBar1;
+    private javax.swing.JPanel panelBar2;
+    private javax.swing.JPanel panelBar3;
+    private javax.swing.JPanel panelBar4;
+    private javax.swing.JPanel panelBar7;
     private javax.swing.JPasswordField password;
     private javax.swing.JPasswordField password_rt;
+    private javax.swing.JLabel pic;
+    private javax.swing.JLabel pic_book;
+    private javax.swing.JLabel pic_book1;
     private javax.swing.JLabel pic_password;
     private javax.swing.JLabel pic_username;
+    private javax.swing.JPanel pn_bar;
+    private javax.swing.JPanel pn_black;
+    private javax.swing.JPanel pn_orange;
+    private javax.swing.JPanel pn_pic;
+    private javax.swing.JLabel postShow;
+    private javax.swing.JButton profile;
+    private javax.swing.JButton profile1;
+    private javax.swing.JButton profile2;
+    private javax.swing.JButton profile3;
     private javax.swing.JButton register;
+    private javax.swing.JButton register1;
+    private javax.swing.JButton register2;
+    private javax.swing.JButton search;
+    private javax.swing.JButton search1;
+    private javax.swing.JPanel showPostList1;
+    private javax.swing.JLabel studentID;
+    private javax.swing.JLabel studentID1;
+    private javax.swing.JLabel studentID2;
     private javax.swing.JTextField studentID_rt;
+    private javax.swing.JButton submit;
+    private javax.swing.JTable t;
+    private javax.swing.JTextArea textComment;
+    private javax.swing.JTextField text_search;
+    private javax.swing.JTextField text_search1;
+    private javax.swing.JLabel topic;
+    private javax.swing.JTextField topic1;
+    private javax.swing.JLabel topic2;
     private javax.swing.JTextField username;
+    private javax.swing.JLabel username1;
     private javax.swing.JTextField username_rt;
     // End of variables declaration//GEN-END:variables
+
 }

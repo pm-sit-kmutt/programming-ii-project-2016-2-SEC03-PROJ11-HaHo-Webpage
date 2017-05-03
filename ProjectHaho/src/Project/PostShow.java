@@ -5,6 +5,7 @@
  */
 package Project;
 
+import static Project.Post1.postName;
 import static Project.comment.genCommentID;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -46,14 +47,14 @@ public class PostShow extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         line = new javax.swing.JPanel();
-        jLabel5 = new javax.swing.JLabel();
         logout = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         showPostList = new javax.swing.JPanel();
-        jPanel2 = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         textComment = new javax.swing.JTextArea();
+        jLabel2 = new javax.swing.JLabel();
+        lb_user = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -124,11 +125,6 @@ public class PostShow extends javax.swing.JFrame {
         line.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         panelBG.add(line, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 60, 780, 2));
 
-        jLabel5.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(204, 204, 204));
-        jLabel5.setText("Wecome");
-        panelBG.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 30, 60, 30));
-
         logout.setBackground(new java.awt.Color(255, 102, 0));
         logout.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
         logout.setForeground(new java.awt.Color(255, 255, 255));
@@ -145,20 +141,6 @@ public class PostShow extends javax.swing.JFrame {
         showPostList.setBackground(new java.awt.Color(255, 255, 255));
         showPostList.setForeground(new java.awt.Color(255, 255, 255));
 
-        jPanel2.setBackground(new java.awt.Color(153, 153, 153));
-        jPanel2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 625, Short.MAX_VALUE)
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 206, Short.MAX_VALUE)
-        );
-
         jButton1.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
         jButton1.setText("Comment");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -171,6 +153,10 @@ public class PostShow extends javax.swing.JFrame {
         textComment.setRows(5);
         jScrollPane2.setViewportView(textComment);
 
+        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        jLabel2.setToolTipText("");
+        jLabel2.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+
         javax.swing.GroupLayout showPostListLayout = new javax.swing.GroupLayout(showPostList);
         showPostList.setLayout(showPostListLayout);
         showPostListLayout.setHorizontalGroup(
@@ -178,22 +164,21 @@ public class PostShow extends javax.swing.JFrame {
             .addGroup(showPostListLayout.createSequentialGroup()
                 .addGroup(showPostListLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(showPostListLayout.createSequentialGroup()
-                        .addGap(58, 58, 58)
-                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(332, 332, 332)
+                        .addComponent(jButton1))
                     .addGroup(showPostListLayout.createSequentialGroup()
                         .addGap(142, 142, 142)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 470, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(showPostListLayout.createSequentialGroup()
-                        .addGap(332, 332, 332)
-                        .addComponent(jButton1)))
-                .addContainerGap(250, Short.MAX_VALUE))
+                        .addGroup(showPostListLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 470, Short.MAX_VALUE)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addContainerGap(376, Short.MAX_VALUE))
         );
         showPostListLayout.setVerticalGroup(
             showPostListLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(showPostListLayout.createSequentialGroup()
-                .addContainerGap(23, Short.MAX_VALUE)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(42, 42, 42)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jButton1)
@@ -203,6 +188,7 @@ public class PostShow extends javax.swing.JFrame {
         jScrollPane1.setViewportView(showPostList);
 
         panelBG.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 140, 770, 390));
+        panelBG.add(lb_user, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 30, 70, 30));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -241,7 +227,7 @@ public class PostShow extends javax.swing.JFrame {
 
     private void addTopic1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addTopic1ActionPerformed
         // TODO add your handling code here:
-        Post p = new Post();
+        Post1 p = new Post1();
         p.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_addTopic1ActionPerformed
@@ -325,13 +311,13 @@ public class PostShow extends javax.swing.JFrame {
     private javax.swing.JButton home;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel kmutt;
     private javax.swing.JLabel lb_kmutt;
+    private javax.swing.JLabel lb_user;
     private javax.swing.JPanel line;
     private javax.swing.JButton logout;
     private javax.swing.JPanel nav;
