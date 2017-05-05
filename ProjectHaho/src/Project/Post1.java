@@ -7,7 +7,7 @@ package Project;
 
 import Project.Database;
 import Project.Database;
-import Project.LoginAndRegister;
+import Project.HaHoWebpage;
 import static Project.comment.genCommentID;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -420,13 +420,13 @@ public class Post1 extends javax.swing.JFrame {
             stm.setInt(5, voteS);
             stm.setTimestamp(6, tm);
             stm.setBoolean(7, false);
-            stm.setInt(8, LoginAndRegister.userId);
+            stm.setInt(8, HaHoWebpage.userId);
             int data = stm.executeUpdate();
 //            getTField = topic.getText();
 //            getTArea = content.getText();
 
             
-            String sqlPostNow = "select max(postID) from Post where userID =" + "'" + LoginAndRegister.userId + "'";
+            String sqlPostNow = "select max(postID) from Post where userID =" + "'" + HaHoWebpage.userId + "'";
             Statement stmNow = con.createStatement();
             ResultSet rsPostNow = stmNow.executeQuery(sqlPostNow);
             if (rsPostNow.next()){

@@ -7,7 +7,7 @@ package Project;
 
 import Project.Database;
 import Project.Database;
-import Project.LoginAndRegister;
+import Project.HaHoWebpage;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
