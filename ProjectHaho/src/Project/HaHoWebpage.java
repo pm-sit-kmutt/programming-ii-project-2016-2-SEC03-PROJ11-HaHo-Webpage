@@ -35,7 +35,7 @@ public class HaHoWebpage extends javax.swing.JFrame {
     DefaultTableModel model = new DefaultTableModel();
     Object[] data = new Object[0];
     TableRowSorter<DefaultTableModel> sorter;
-    
+
     DefaultTableModel model2 = new DefaultTableModel();
     Object[] data2 = new Object[0];
     TableRowSorter<DefaultTableModel> sorter2;
@@ -56,10 +56,14 @@ public class HaHoWebpage extends javax.swing.JFrame {
         model = (DefaultTableModel) tableList.getModel();
         sorter = new TableRowSorter<>(model);
         tableList.setRowSorter(sorter);
-       
+        
+        model2 = (DefaultTableModel) tableList2.getModel();
+        sorter2 = new TableRowSorter<>(model2);
+        tableList2.setRowSorter(sorter2);
+
         showDataRecord();
         
-
+   
         //showData();
         //showPostList();
     }
@@ -193,6 +197,7 @@ public class HaHoWebpage extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jScrollPane4 = new javax.swing.JScrollPane();
         textComment = new javax.swing.JTextArea();
+        editPost = new javax.swing.JButton();
         lb_user2 = new javax.swing.JLabel();
         Profile = new javax.swing.JPanel();
         panelBar4 = new javax.swing.JPanel();
@@ -383,9 +388,9 @@ public class HaHoWebpage extends javax.swing.JFrame {
                 "", "", ""
             }
         ));
-        tableList.setGridColor(new java.awt.Color(255,153,51));
-        tableList.setRowHeight(28);
-        tableList.setSelectionBackground(new java.awt.Color(204,204,204));
+        tableList2.setGridColor(new java.awt.Color(255,153,51));
+        tableList2.setRowHeight(28);
+        tableList2.setSelectionBackground(new java.awt.Color(204,204,204));
         PostList.setViewportView(tableList);
 
         HomeNotLogin.add(PostList, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 190, 750, 330));
@@ -1085,17 +1090,17 @@ public class HaHoWebpage extends javax.swing.JFrame {
         PostShow.setLayout(PostShowLayout);
         PostShowLayout.setHorizontalGroup(
             PostShowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(PostShowLayout.createSequentialGroup()
-                .addContainerGap()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PostShowLayout.createSequentialGroup()
+                .addContainerGap(24, Short.MAX_VALUE)
                 .addComponent(postShow, javax.swing.GroupLayout.PREFERRED_SIZE, 578, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(37, Short.MAX_VALUE))
+                .addGap(23, 23, 23))
         );
         PostShowLayout.setVerticalGroup(
             PostShowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PostShowLayout.createSequentialGroup()
-                .addGap(30, 30, 30)
+                .addGap(24, 24, 24)
                 .addComponent(postShow, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(27, Short.MAX_VALUE))
+                .addContainerGap(33, Short.MAX_VALUE))
         );
 
         jButton1.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
@@ -1110,32 +1115,42 @@ public class HaHoWebpage extends javax.swing.JFrame {
         textComment.setRows(5);
         jScrollPane4.setViewportView(textComment);
 
+        editPost.setText("Edit Post");
+
         javax.swing.GroupLayout showPostList1Layout = new javax.swing.GroupLayout(showPostList1);
         showPostList1.setLayout(showPostList1Layout);
         showPostList1Layout.setHorizontalGroup(
             showPostList1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(showPostList1Layout.createSequentialGroup()
-                .addGap(54, 54, 54)
+                .addGap(327, 327, 327)
+                .addComponent(jButton1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, showPostList1Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 470, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(138, 138, 138))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, showPostList1Layout.createSequentialGroup()
+                .addContainerGap(70, Short.MAX_VALUE)
                 .addGroup(showPostList1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(PostShow, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(showPostList1Layout.createSequentialGroup()
-                        .addGap(84, 84, 84)
-                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 470, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(showPostList1Layout.createSequentialGroup()
-                        .addGap(274, 274, 274)
-                        .addComponent(jButton1)))
-                .addContainerGap(70, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, showPostList1Layout.createSequentialGroup()
+                        .addComponent(PostShow, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(54, 54, 54))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, showPostList1Layout.createSequentialGroup()
+                        .addComponent(editPost)
+                        .addGap(23, 23, 23))))
         );
         showPostList1Layout.setVerticalGroup(
             showPostList1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(showPostList1Layout.createSequentialGroup()
-                .addGap(19, 19, 19)
+                .addContainerGap()
+                .addComponent(editPost)
+                .addGap(30, 30, 30)
                 .addComponent(PostShow, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 83, Short.MAX_VALUE)
                 .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
                 .addComponent(jButton1)
-                .addContainerGap(158, Short.MAX_VALUE))
+                .addGap(34, 34, 34))
         );
 
         jScrollPane3.setViewportView(showPostList1);
@@ -1342,6 +1357,7 @@ public class HaHoWebpage extends javax.swing.JFrame {
                         lb_user2.setText("");
                         lb_user3.setText("");
                         Home.setVisible(true);
+                        showDataRecord2();
                         LoginRegister.setVisible(false);
 
                         if (rsUserId.next()) {
@@ -1530,6 +1546,7 @@ public class HaHoWebpage extends javax.swing.JFrame {
         Post.setVisible(false);
         Ps.setVisible(false);
         Profile.setVisible(false);
+        showDataRecord();
     }//GEN-LAST:event_homeActionPerformed
 
     private void profileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_profileActionPerformed
@@ -1590,6 +1607,7 @@ public class HaHoWebpage extends javax.swing.JFrame {
         lb_user1.setText("");
         lb_user2.setText("");
         lb_user3.setText("");
+        showDataRecord();
     }//GEN-LAST:event_logoutActionPerformed
 
     private void home2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_home2ActionPerformed
@@ -1768,6 +1786,7 @@ public class HaHoWebpage extends javax.swing.JFrame {
         lb_user1.setText("");
         lb_user2.setText("");
         lb_user3.setText("");
+        showDataRecord();
     }//GEN-LAST:event_logout1ActionPerformed
 
     private void home3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_home3ActionPerformed
@@ -1833,6 +1852,7 @@ public class HaHoWebpage extends javax.swing.JFrame {
         lb_user1.setText("");
         lb_user2.setText("");
         lb_user3.setText("");
+        showDataRecord();
     }//GEN-LAST:event_logout2ActionPerformed
 
     private void addTopicActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addTopicActionPerformed
@@ -1972,6 +1992,7 @@ public class HaHoWebpage extends javax.swing.JFrame {
         lb_user1.setText("");
         lb_user2.setText("");
         lb_user3.setText("");
+        showDataRecord();
     }//GEN-LAST:event_jb_logoutActionPerformed
 
     private void home8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_home8ActionPerformed
@@ -2063,6 +2084,9 @@ public class HaHoWebpage extends javax.swing.JFrame {
             System.out.println(e.getMessage());
         }
     }
+
+   
+
     //****** อันนี้คือโชว์โพสลิสแบบลูบพาเนล แต่มันไม่ยอมแสดงผลออกมา ******
     //    public static ArrayList<String> PostList() {
     //        ArrayList postList = new ArrayList<String>();
@@ -2175,6 +2199,7 @@ public class HaHoWebpage extends javax.swing.JFrame {
     private javax.swing.JButton cancle;
     private javax.swing.JPasswordField confirmPassword_rt;
     private javax.swing.JTextArea content;
+    private javax.swing.JButton editPost;
     private javax.swing.JButton home;
     private javax.swing.JButton home1;
     private javax.swing.JButton home2;
