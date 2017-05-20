@@ -5,13 +5,13 @@
  */
 package Project;
 
-import static Project.Post.getTField;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-
+import static Project.HaHoWebboard.getPostId;
 /**
  *
  * @author Bver
@@ -44,7 +44,7 @@ public class GenCode {
         
         Connection con = Database.getConnection();
         Statement stm = con.createStatement();
-        String sql = "select * from Post where postID=" + "'" + countPost + "'";
+        String sql = "select * from Post where postID=" + "'" + getPostId + "'";
         ResultSet rs = stm.executeQuery(sql);
         if (rs.next()) {
             if (rs.getInt("voteScore") != 0) {
@@ -52,7 +52,33 @@ public class GenCode {
                 countVote++;
                 String sqlV = "UPDATE Post "+
                     "SET voteScore ="+"'"+countVote+"'"+
-                    " WHERE postID ="+"'"+getTField+"'";
+                    " WHERE postID ="+"'"+getPostId+"'";
+                    stm.execute(sqlV);
+                countVote=0;
+            }
+        }
+        try {
+            con.close();
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        System.out.println(countVote+";;;;");
+        return countVote;
+    }
+    
+    public static int VoteDecrease() throws SQLException {
+        
+        Connection con = Database.getConnection();
+        Statement stm = con.createStatement();
+        String sql = "select * from Post where postID=" + "'" + getPostId + "'";
+        ResultSet rs = stm.executeQuery(sql);
+        if (rs.next()) {
+            if (rs.getInt("voteScore") != 0) {
+                countVote = rs.getInt("voteScore");
+                countVote--;
+                String sqlV = "UPDATE Post "+
+                    "SET voteScore ="+"'"+countVote+"'"+
+                    " WHERE postID ="+"'"+getPostId+"'";
                     stm.execute(sqlV);
                 countVote=0;
             }
